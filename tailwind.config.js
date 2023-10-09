@@ -4,6 +4,9 @@ module.exports = {
   important: true,
   content: ["./src/**/*.{html,js,tsx,jsx,ts}"],
   theme: {
+    fontSize: {
+      "12px": "12px",
+    },
     colors: {
       titleSideBar: "#3F454D",
       white: "#FFFFFF",

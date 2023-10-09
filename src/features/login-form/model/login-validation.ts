@@ -2,9 +2,9 @@ import { forward } from "effector";
 import { createForm } from "effector-forms";
 
 import { checkEmail, checkLength, required } from "@/shared/lib/validators";
-import { registerFx } from "@/entities/auth/lib/authEffects";
+import { loginFx } from "@/entities/auth/lib/auth-effects.ts";
 
-export const registerForm = createForm({
+export const loginForm = createForm({
   fields: {
     email: {
       init: "",
@@ -23,6 +23,6 @@ export const registerForm = createForm({
 });
 
 forward({
-  from: registerForm.formValidated,
-  to: registerFx,
+  from: loginForm.formValidated,
+  to: loginFx,
 });

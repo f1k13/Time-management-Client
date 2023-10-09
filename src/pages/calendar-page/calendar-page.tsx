@@ -1,5 +1,5 @@
-const calendarPage = () => {
+const CalendarPage = () => {
   return <div>КАЛЕНДАРЬ</div>;
 };
 
-export default calendarPage;
+export default CalendarPage;

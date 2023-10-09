@@ -1,8 +1,8 @@
 import { TextField } from "@/shared/ui/text-field";
 import { FormEvent } from "react";
-import { registerForm } from "../lib/registration-valid";
+import { registerForm } from "../model/registration-validation.ts";
 import { useForm } from "effector-forms";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CALENDAR_ROUTE } from "@/app/routes/paths";
 const RegisterForm = () => {
   const { fields, submit } = useForm(registerForm);
