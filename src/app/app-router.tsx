@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes/routes";
 import { $isAuth } from "@/entities/auth/model/auth";
 import { useStore } from "effector-react";
@@ -7,12 +7,15 @@ import { getToken } from "@/shared/lib";
 import { setIsAuth } from "@/entities/auth/lib";
 import { setTokenToApi } from "@/shared/api/api.ts";
 import { getSelfFx } from "@/entities/user/lib";
+import { LOGIN_ROUTE } from "./routes/paths";
 const AppRouter = () => {
   const isAuth = useStore($isAuth);
+  const navigate = useNavigate();
   useEffect(() => {
     const token = getToken();
     if (!token) {
       setIsAuth(false);
+      navigate(LOGIN_ROUTE);
     }
     setTokenToApi(String(token));
     getSelfFx();

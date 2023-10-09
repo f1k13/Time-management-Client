@@ -2,11 +2,8 @@ import { api } from "@/shared/api/api";
 import { createEffect } from "effector";
 import { setToken } from "@/shared/lib";
 
-export type User = {
-  email: string;
-  password: string;
-  username: string;
-};
+import { User } from "@/entities/user/model/user";
+
 
 export const registerFx = createEffect(async (params: User) => {
   try {
@@ -16,6 +13,7 @@ export const registerFx = createEffect(async (params: User) => {
     setToken(data.token);
     return data;
   } catch (error) {
+    console.log(error);
     return error;
   }
 });
@@ -28,6 +26,7 @@ export const loginFx = createEffect(async (params: User) => {
     setToken(data.token);
     return data;
   } catch (error) {
+    console.log();
     return error;
   }
 });

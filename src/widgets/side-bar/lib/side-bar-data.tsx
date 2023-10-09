@@ -5,7 +5,7 @@ import {
   PlanIcon,
   ProgressIcon,
   StatisticsIcon,
-} from "@/shared/icons";
+} from "@/shared/ui/icons";
 
 export const sideBarData = [
   { id: 1, title: "Calendar", icon: <CalendarIcon /> },

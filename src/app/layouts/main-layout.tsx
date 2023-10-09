@@ -1,4 +1,4 @@
-import { SideBar } from "@/widgets/header/ui";
+import { SideBar } from "@/widgets/side-bar/ui";
 import { ReactNode } from "react";
 
 const MainLayout = ({ children }: { children: ReactNode }) => {

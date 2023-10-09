@@ -2,6 +2,7 @@ import { createStore } from "effector/effector.mjs";
 import { loginFx, registerFx } from "@/entities/auth/lib";
 import { getSelfFx } from "@/entities/user/lib";
 
+
 export type User = {
   id: string;
   username: string;
@@ -12,6 +13,7 @@ export const $user = createStore<User | null>(null)
   .on(registerFx.doneData, (_, user) => user)
   .on(registerFx.failData, (_, error) => {
     console.log(error);
+    return null;
   })
   .on(loginFx.doneData, (_, user) => user)
   .on(loginFx.failData, (_, error) => {
