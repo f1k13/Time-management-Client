@@ -1,11 +1,15 @@
-import { MainLayot } from "./main-layot/ui";
 import "./styles/main.scss";
+import Providers from "@/app/layouts/providers.tsx";
+import MainLayout from "@/app/layouts/main-layout.tsx";
+import AppRouter from "@/app/AppRouter.tsx";
 
 const App = () => {
   return (
-    <div>
-      <MainLayot />
-    </div>
+    <Providers>
+      <MainLayout>
+        <AppRouter />
+      </MainLayout>
+    </Providers>
   );
 };
 
