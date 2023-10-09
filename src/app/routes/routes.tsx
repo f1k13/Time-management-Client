@@ -1,7 +1,9 @@
-import { HomePage } from "@/pages/home-page";
-import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "./paths";
+
+import { CalendarPage } from "@/pages/calendar-page";
+import { CALENDAR_ROUTE,  LOGIN_ROUTE, REGISTER_ROUTE } from "./paths";
 import { LoginPage } from "@/pages/login-page";
 import { RegisterPage } from "@/pages/register-page";
+
 
 type RouteType = {
   path: string;
@@ -21,7 +23,7 @@ export const publicRoutes: RouteType[] = [
 
 export const authRoutes: RouteType[] = [
   {
-    path: HOME_ROUTE,
-    Component: HomePage,
+    path: CALENDAR_ROUTE,
+    Component: CalendarPage,
   },
 ];
