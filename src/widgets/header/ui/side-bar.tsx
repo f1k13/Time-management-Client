@@ -2,7 +2,7 @@ import { sideBarData } from "../lib/side-bar-data";
 
 const SideBar = () => {
   return (
-    <div className="border-r border-mainBorder flex flex-col w-[220px] h-full">
+    <div className="border-r px-5 py-5 bg-mainBG border-mainBorder flex flex-col w-[250px] h-full">
       <h1 className="text-titleSideBar text-lg uppercase">Your workspace</h1>
       <div className="flex flex-col mt-5 justify-between">
         {sideBarData.map((item) => (

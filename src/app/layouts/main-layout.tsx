@@ -7,8 +7,8 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
       <div className="w-full h-[100px]">navbar</div>
       <div className="flex flex-1 w-full">
         <SideBar />
-        <div className="p-[16px] w-full">
-          <div className="bg-white w-full h-full">{children}</div>
+        <div className="p-[16px] w-full h-full">
+          <div className="bg-mainBG w-full h-full">{children}</div>
         </div>
       </div>
     </div>
