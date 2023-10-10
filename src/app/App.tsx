@@ -1,16 +1,13 @@
-import "./styles/main.scss";
-import Providers from "@/app/layouts/providers.tsx";
-import MainLayout from "@/app/layouts/main-layout.tsx";
-import AppRouter from "@/app/app-router.tsx";
+import AppRouter from '@/app/app-router.tsx'
+import Providers from '@/app/layouts/providers.tsx'
+import './styles/main.scss'
 
 const App = () => {
-  return (
-    <Providers>
-      <MainLayout>
-        <AppRouter />
-      </MainLayout>
-    </Providers>
-  );
-};
+	return (
+		<Providers>
+			<AppRouter />
+		</Providers>
+	)
+}
 
-export default App;
+export default App

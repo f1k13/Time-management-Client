@@ -16,7 +16,7 @@ export const registerFx = createEffect<
 		setToken(data.token)
 		return data
 	} catch (error) {
-		console.log(error)
+		console.error(error)
 		return error
 	}
 })
