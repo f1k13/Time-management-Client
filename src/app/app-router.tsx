@@ -7,7 +7,7 @@ import { getToken } from "@/shared/lib";
 import { setIsAuth } from "@/entities/auth/lib";
 import { setTokenToApi } from "@/shared/api/api.ts";
 import { getSelfFx } from "@/entities/user/lib";
-import { LOGIN_ROUTE } from "./routes/paths";
+import {  REGISTER_ROUTE } from "./routes/paths";
 const AppRouter = () => {
   const isAuth = useStore($isAuth);
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const AppRouter = () => {
     const token = getToken();
     if (!token) {
       setIsAuth(false);
-      navigate(LOGIN_ROUTE);
+      navigate(REGISTER_ROUTE);
     }
     setTokenToApi(String(token));
     getSelfFx();

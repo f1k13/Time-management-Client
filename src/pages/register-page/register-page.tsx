@@ -1,11 +1,13 @@
 import { AuthLayout } from "@/app/layouts";
-import RegisterForm from "@/features/register-form/ui/register-form";
+import { Register } from "@/widgets/register";
+
+
 
 const RegisterPage = () => {
   return (
     <div className="flex justify-center items-center">
       <AuthLayout>
-        <RegisterForm />
+        <Register/>
       </AuthLayout>
     </div>
   );

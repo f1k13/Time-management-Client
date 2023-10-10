@@ -18,6 +18,10 @@ export const registerForm = createForm({
       init: "",
       rules: [required(), checkLength(6, 20)],
     },
+    repeatPassword: {
+      init: "",
+      rules: [required(), checkLength(6, 20)],
+    },
   },
   validateOn: ["submit"],
 });
