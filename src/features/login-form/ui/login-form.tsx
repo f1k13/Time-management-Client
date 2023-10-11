@@ -16,16 +16,10 @@ const LoginForm = () => {
     e.preventDefault();
     submit();
     if (isAuth) {
-      setNotificationEvent({
-        status: "success",
-        text: "Successfully logged in",
-      });
+      setNotificationEvent({ status: "success", text: "successfully login" });
       navigate(CALENDAR_ROUTE);
     } else {
-      setNotificationEvent({
-        status: "error",
-        text: "Wrong email or password",
-      });
+      setNotificationEvent({ status: "error", text: "successfully login" });
     }
   };
 

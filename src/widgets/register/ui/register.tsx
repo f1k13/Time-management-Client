@@ -3,9 +3,12 @@ import { RegisterForm } from "@/features/register-form/ui";
 import { useNavigate } from "react-router-dom";
 import peepsHappy from "../../../shared/peeps/peeps-happy-mainbg.jpg";
 import peepsSad from "../../../shared/peeps/peeps-sad-mainbg.jpg";
-
+import { $notification } from "@/entities/notification/model/notification";
+import { useStore } from "effector-react";
 const Register = () => {
   const navigate = useNavigate();
+  const { status } = useStore($notification);
+  console.log(status);
   return (
     <div className="flex  justify-center items-center w-full">
       <div className="flex flex-col items-center bg-authBG h-full rounded-xl p-[50px]">
@@ -25,11 +28,7 @@ const Register = () => {
           </p>
         </div>
       </div>
-      <img
-        
-        src={status === "error" ? peepsSad : peepsHappy}
-        alt=""
-      />
+      <img src={status === "error" ? peepsSad : peepsHappy} alt="" />
     </div>
   );
 };

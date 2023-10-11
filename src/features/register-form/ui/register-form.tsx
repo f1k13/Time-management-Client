@@ -25,7 +25,7 @@ const RegisterForm = () => {
     } else {
       setNotificationEvent({
         status: "error",
-        text: "Wrong email or password",
+        text: "asdsa",
       });
     }
   };
