@@ -4,55 +4,67 @@ import { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerForm } from "../model/registration-validation.ts";
 import { CALENDAR_ROUTE } from "@/app/routes/paths.ts";
-
-import ErrorAlertHandler from "@/shared/ui/notification-handler/notification-handler.tsx";
+import { useStore } from "effector-react/effector-react.umd";
+import { setNotificationEvent } from "@/entities/notification/lib/notification-events.ts";
+import { $isAuth } from "@/entities/auth/model/auth.ts";
 
 const RegisterForm = () => {
   const { fields, submit } = useForm(registerForm);
+  const isAuth = useStore($isAuth);
   const navigate = useNavigate();
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
-    navigate(CALENDAR_ROUTE);
+    if (isAuth) {
+      navigate(CALENDAR_ROUTE);
+      setNotificationEvent({
+        status: "success",
+        text: "Successfully register in",
+      });
+    } else {
+      setNotificationEvent({
+        status: "error",
+        text: "Wrong email or password",
+      });
+    }
   };
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-10">
-      {status && <ErrorAlertHandler status={status} />}
       <TextField
         label="Email"
         placeholder="Enter your email"
-        labelColor="#66FFE3"
+        color="secondaryColor"
         value={fields.email.value}
-        error={fields.email.firstError}
+        error={fields.email.firstError?.rule}
         onChange={(e) => fields.email.onChange(e.target.value)}
       />
       <TextField
         label="Username"
         placeholder="Enter your username"
-        labelColor="#66FFE3"
+        color="secondaryColor"
         value={fields.username.value}
-        error={fields.username.firstError}
+        error={fields.username.firstError?.rule}
         onChange={(e) => fields.username.onChange(e.target.value)}
       />
       <TextField
         label="Password"
         placeholder="Enter your password"
-        labelColor="#66FFE3"
+        color="secondaryColor"
         value={fields.password.value}
-        error={fields.password.firstError}
+        error={fields.password.firstError?.rule}
         onChange={(e) => fields.password.onChange(e.target.value)}
       />
       <TextField
         label="Repeat password"
         placeholder="Repeat the password"
-        labelColor="#66FFE3"
+        color="secondaryColor"
         value={fields.repeatPassword.value}
-        error={fields.repeatPassword.firstError}
+        error={fields.repeatPassword.firstError?.rule}
         onChange={(e) => fields.repeatPassword.onChange(e.target.value)}
       />
       <button
-        className="bg-labelColor text-white rounded-2xl shadow-buttonRegister text-36px"
+        className="bg-secondaryColor text-white rounded-2xl shadow-buttonRegister text-36px"
         type="submit"
       >
         Register

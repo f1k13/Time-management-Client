@@ -7,14 +7,14 @@ import peepsSad from "../../../shared/peeps/peeps-sad-mainbg.jpg";
 const Register = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex pl-20 items-center w-full">
+    <div className="flex  justify-center items-center w-full">
       <div className="flex flex-col items-center bg-authBG h-full rounded-xl p-[50px]">
-        <h1 className="text-labelColor text-40px font-bold leading-normal mt-10">
+        <h1 className="text-secondaryColor text-40px font-bold leading-normal mt-10">
           Registration
         </h1>
         <div className="mt-[45px]">
           <RegisterForm />
-          <p className="text-labelColor mt-5">
+          <p className="text-secondaryColor mt-5">
             Have account?
             <span
               className="ml-2 cursor-pointer"

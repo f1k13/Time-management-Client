@@ -1,10 +1,10 @@
 export const errorsList: { [key: string]: string } = {
-  required: "Обязательное поле",
-  email: "Некорректный email",
-    
-  length: "Длина должна быть от 3 до 15 символов",
-  "req-username": "Аккаунт с таким username уже существует",
-  "req-email": "Аккаунт с таким email уже существует",
-  "login-email": "Неверный email",
-  "login-password": "Неверный пароль",
+  required: "Required field",
+  email: "Invalid email",
+
+  length: "Invalid length",
+  "req-username": "Account with this username already exists",
+  "req-email": "Account with this email already exists",
+  "login-email": "Invalid email",
+  "login-password": "Invalid password",
 };

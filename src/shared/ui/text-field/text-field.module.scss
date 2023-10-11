@@ -1,4 +1,31 @@
 .root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.placeholder {
+  user-select: none;
+  color: #3f454d;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  transition: 0.2s linear;
+}
+.placeholderActive {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 14px;
+}
+.placeholderInActive {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 14px;
+}
+
+.root {
   background-color: #191d25;
   height: 60px;
   width: 623px;
@@ -11,15 +38,4 @@
   line-height: normal;
   padding-left: 17px;
   outline: none;
-  &::placeholder {
-    color: #3f454d;
-    transition: 1s ease-in-out;
-  }
-  &:focus {
-    &::placeholder {
-      position: absolute;
-      bottom: 60%;
-      transition: all 1s ease-in-out;
-    }
-  }
 }

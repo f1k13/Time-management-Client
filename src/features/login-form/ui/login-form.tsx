@@ -34,21 +34,21 @@ const LoginForm = () => {
       <TextField
         label="Email"
         placeholder="Enter your email"
-        labelColor="#0E7DFF"
+        color="mainColor"
         value={fields.email.value}
-        error={fields.email.firstError}
+        error={fields.email.firstError?.rule}
         onChange={(e) => fields.email.onChange(e.target.value)}
       />
       <TextField
         label="Password"
         placeholder="Enter your password"
-        labelColor="#0E7DFF"
+        color="mainColor"
         value={fields.password.value}
-        error={fields.password.firstError}
+        error={fields.password.firstError?.rule}
         onChange={(e) => fields.password.onChange(e.target.value)}
       />
       <button
-        className="bg-loginColor text-white rounded-2xl shadow-buttonLogin text-36px"
+        className="bg-mainColor text-white rounded-2xl shadow-buttonLogin text-36px"
         type="submit"
       >
         Login

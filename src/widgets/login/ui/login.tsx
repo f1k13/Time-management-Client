@@ -10,12 +10,12 @@ const Login = () => {
   return (
     <div className="flex w-full h-full items-center justify-center">
       <div className="flex flex-col items-center bg-authBG h-full rounded-xl p-20">
-        <h1 className="text-loginColor text-40px font-bold leading-normal mt-10">
+        <h1 className="text-mainColor text-40px font-bold leading-normal mt-5">
           Login
         </h1>
         <div className="mt-[45px]">
           <LoginForm />
-          <p className="text-loginColor mt-5">
+          <p className="text-mainColor mt-5">
             No have account?
             <span
               className="ml-2 cursor-pointer"
@@ -27,7 +27,7 @@ const Login = () => {
         </div>
       </div>
       <img
-       
+        className=""
         src={status === "error" ? peepsSad : peepsHappy}
         alt=""
       />
