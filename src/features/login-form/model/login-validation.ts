@@ -6,10 +6,6 @@ import { loginFx } from "@/entities/auth/lib/auth-effects.ts";
 
 export const loginForm = createForm({
   fields: {
-    username: {
-      init: "",
-      rules: [required(), checkEmail()],
-    },
     email: {
       init: "",
       rules: [required(), checkEmail()],

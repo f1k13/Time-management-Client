@@ -3,12 +3,10 @@ import { LoginForm } from "@/features/login-form/ui";
 import { useNavigate } from "react-router-dom";
 import peepsHappy from "../../../shared/peeps/peeps-happy-mainbg.jpg";
 import peepsSad from "../../../shared/peeps/peeps-sad-mainbg.jpg";
-import { useStore } from "effector-react/effector-react.umd";
-import { $status } from "@/entities/error/model/status";
+
 
 const Login = () => {
   const navigate = useNavigate();
-  const status = useStore($status);
   return (
     <div className="flex w-full h-full items-center justify-center">
       <div className="flex flex-col items-center bg-authBG h-full rounded-xl p-20">
@@ -29,7 +27,7 @@ const Login = () => {
         </div>
       </div>
       <img
-        className="w-1/2 h-[900px]"
+       
         src={status === "error" ? peepsSad : peepsHappy}
         alt=""
       />

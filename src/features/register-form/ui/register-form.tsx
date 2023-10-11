@@ -3,38 +3,18 @@ import { useForm } from "effector-forms";
 import { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerForm } from "../model/registration-validation.ts";
-import { CALENDAR_ROUTE, LOGIN_ROUTE } from "@/app/routes/paths.ts";
-import {
-  setErrorEvent,
-  setSuccessEvent,
-} from "@/entities/error/lib/status-events.ts";
-import ErrorAlertHandler from "@/shared/ui/error-alert-handler/error-alert-handler.tsx";
-import { $status } from "@/entities/error/model/status.ts";
-import { useStore } from "effector-react/effector-react.mjs";
+import { CALENDAR_ROUTE } from "@/app/routes/paths.ts";
+
+import ErrorAlertHandler from "@/shared/ui/notification-handler/notification-handler.tsx";
+
 const RegisterForm = () => {
   const { fields, submit } = useForm(registerForm);
-  const status = useStore($status);
   const navigate = useNavigate();
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (
-      fields.email.firstError &&
-      fields.password.firstError &&
-      fields.username.firstError &&
-      fields.repeatPassword.firstError
-    ) {
-      setTimeout(() => {
-        navigate(LOGIN_ROUTE);
-      }, 4000);
-      setErrorEvent();
-    } else {
-      setTimeout(() => {
-        navigate(CALENDAR_ROUTE);
-        submit();
-      }, 4000);
-      setSuccessEvent();
-    }
+    submit();
+    navigate(CALENDAR_ROUTE);
   };
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-10">

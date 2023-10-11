@@ -1,40 +1,36 @@
-import { CALENDAR_ROUTE, LOGIN_ROUTE } from "@/app/routes/paths";
+import { CALENDAR_ROUTE } from "@/app/routes/paths";
 import { TextField } from "@/shared/ui/text-field";
 import { useForm } from "effector-forms";
 import { FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginForm } from "../model/login-validation";
 import { useStore } from "effector-react/effector-react.mjs";
-import { $status } from "@/entities/error/model/status";
-import {
-  setErrorEvent,
-  setSuccessEvent,
-} from "@/entities/error/lib/status-events";
-import { ErrorAlertHandler } from "@/shared/ui/error-alert-handler";
+import { $isAuth } from "@/entities/auth/model/auth";
+import { setNotificationEvent } from "@/entities/notification/lib/notification-events";
 
 const LoginForm = () => {
   const { fields, submit } = useForm(loginForm);
   const navigate = useNavigate();
-  const status = useStore($status);
+  const isAuth = useStore($isAuth);
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
-    if (fields.email.firstError && fields.password.firstError) {
-      setTimeout(() => {
-        navigate(LOGIN_ROUTE);
-      }, 4000);
-      setErrorEvent();
+    if (isAuth) {
+      setNotificationEvent({
+        status: "success",
+        text: "Successfully logged in",
+      });
+      navigate(CALENDAR_ROUTE);
     } else {
-      setTimeout(() => {
-        navigate(CALENDAR_ROUTE);
-      }, 4000);
-      setSuccessEvent();
+      setNotificationEvent({
+        status: "error",
+        text: "Wrong email or password",
+      });
     }
   };
 
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-10">
-      {status && <ErrorAlertHandler status={status} />}
       <TextField
         label="Email"
         placeholder="Enter your email"
