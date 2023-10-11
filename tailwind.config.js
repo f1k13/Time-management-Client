@@ -16,10 +16,13 @@ module.exports = {
       mainBG: "#1D2129",
       labelColor: "#66FFE3",
       inputBG: "#191D25",
-      
+      loginColor: "#0E7DFF",
+      authBG: "#1D2129",
+      errorBG: "#FF5B5B",
     },
     boxShadow: {
       buttonRegister: "0px 8px 0px 0px #49B09D;",
+      buttonLogin: "0px 8px 0px 0px #0C58B0;",
     },
   },
   plugins: [],

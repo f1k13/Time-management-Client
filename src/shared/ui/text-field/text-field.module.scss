@@ -11,14 +11,15 @@
   line-height: normal;
   padding-left: 17px;
   outline: none;
-  transition: all 0.2s ease-in-out;
   &::placeholder {
     color: #3f454d;
+    transition: 1s ease-in-out;
   }
   &:focus {
     &::placeholder {
       position: absolute;
       bottom: 60%;
+      transition: all 1s ease-in-out;
     }
   }
 }

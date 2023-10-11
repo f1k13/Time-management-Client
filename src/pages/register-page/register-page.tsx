@@ -5,7 +5,7 @@ import { Register } from "@/widgets/register";
 
 const RegisterPage = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div>
       <AuthLayout>
         <Register/>
       </AuthLayout>

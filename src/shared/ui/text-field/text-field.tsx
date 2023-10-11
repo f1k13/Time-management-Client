@@ -1,15 +1,18 @@
 import { InputHTMLAttributes } from "react";
 import styles from "./text-field.module.scss";
+import { FormErrorHandler } from "../form-error-handler";
+import { ValidationError } from "effector-forms";
 const TextField = ({
   label,
   type,
   placeholder,
   labelColor,
+  error,
   ...rest
 }: {
   label?: string;
   type?: string;
-  error?: string;
+  error?: ValidationError<string> | null;
   placeholder?: string;
   labelColor?: string;
 } & InputHTMLAttributes<HTMLInputElement>) => {
@@ -25,6 +28,7 @@ const TextField = ({
         type={type}
         placeholder={placeholder}
       />
+      {error && <FormErrorHandler error={error} />}
     </div>
   );
 };
