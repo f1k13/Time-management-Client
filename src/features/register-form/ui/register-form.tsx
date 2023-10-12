@@ -1,35 +1,14 @@
 import { TextField } from "@/shared/ui/text-field";
 import { useForm } from "effector-forms";
 import { FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
-import { registerForm } from "../model/registration-validation.ts";
-import { CALENDAR_ROUTE } from "@/app/routes/paths.ts";
-import { useStore } from "effector-react/effector-react.umd";
-import { setNotificationEvent } from "@/entities/notification/lib/notification-events.ts";
-import { $isAuth } from "@/entities/auth/model/auth.ts";
+import { registerForm } from "../model/registration-form-state.ts";
 
 const RegisterForm = () => {
   const { fields, submit } = useForm(registerForm);
-  const isAuth = useStore($isAuth);
-  const navigate = useNavigate();
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
-    if (isAuth) {
-      navigate(CALENDAR_ROUTE);
-      setNotificationEvent({
-        status: "success",
-        text: "Successfully register in",
-        active: true,
-      });
-    } else {
-      setNotificationEvent({
-        status: "error",
-        text: "",
-        active: true,
-      });
-    }
   };
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-10">

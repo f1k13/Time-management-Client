@@ -13,19 +13,6 @@ module.exports = {
       tablet: "640px",
       laptop: "1024px",
       desktop: "1280px",
-      
-    },
-    fontWeight: {
-      thin: "100",
-      hairline: "100",
-      extralight: "200",
-      light: "300",
-      normal: "400",
-      medium: "500",
-      semibold: "600",
-      bold: "700",
-      extrabold: "800",
-      black: "900",
     },
     colors: {
       secondaryTextColor: "#3F454D",
@@ -34,8 +21,8 @@ module.exports = {
       mainBG: "#1D2129",
       secondaryColor: "#66FFE3",
       inputBG: "#191D25",
-      mainColorAcsent: "#0E7DFF",
-      secondaryColorAcsent: "#1D2129",
+      mainColorAccent: "#0E7DFF",
+      secondaryColorAccent: "#1D2129",
       errorColor: "#FF5B5B",
     },
     boxShadow: {

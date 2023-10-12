@@ -11,3 +11,5 @@ export const $isAuth = createStore<boolean>(false)
   .on(setIsAuth, (_, value) => value)
   .on(getSelfFx.doneData, () => true)
   .on(getSelfFx.failData, () => false);
+
+$isAuth.watch(console.log);

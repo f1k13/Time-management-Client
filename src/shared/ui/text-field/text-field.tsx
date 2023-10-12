@@ -1,12 +1,12 @@
 import { InputHTMLAttributes, useState } from "react";
 import styles from "./text-field.module.scss";
-
+import clsx from "clsx";
 import { errorsList } from "@/shared/lib/errors-form-list";
 const TextField = ({
   label,
   type,
   placeholder,
-  color,
+  labelClassName,
   error,
   ...rest
 }: {
@@ -15,6 +15,7 @@ const TextField = ({
   error?: string | null;
   placeholder?: string;
   color?: string | null;
+  labelClassName?: string;
 } & InputHTMLAttributes<HTMLInputElement>) => {
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const onFocus = () => {
@@ -32,23 +33,32 @@ const TextField = ({
   }`;
   return (
     <div className="flex flex-col gap-2 relative w-full">
-      <label className={`label text-14px text-${color}`} htmlFor={label}>
+      <label
+        className={clsx(
+          labelClassName,
+          "text-14px font-bold text-mainColorAccent",
+        )}
+        htmlFor={label}
+      >
         {label}
       </label>
       <input
         {...rest}
-        className={styles.root}
+        className={clsx(styles.root)}
         onFocus={onFocus}
         onBlur={onBlur}
         id={label}
         type={type}
       />
       <p className={placeHolderClassName}>{placeholder}</p>
-      {error && (
-        <p className="absolute text-errorColor left-[90%] font-medium top-[100px]">
-          {errorsList[error]}
-        </p>
-      )}
+      <p
+        className={clsx(
+          "absolute text-errorColor right-0 font-medium bottom-[-25px] transition opacity-0",
+          error && "opacity-100",
+        )}
+      >
+        {errorsList[error || ""]}
+      </p>
     </div>
   );
 };
