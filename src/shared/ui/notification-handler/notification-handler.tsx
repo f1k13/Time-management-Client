@@ -2,7 +2,7 @@ import { $notification } from "@/entities/notification/model/notification";
 import { useStore } from "effector-react/compat";
 
 const ErrorAlertHandler = () => {
-  const { status, text } = useStore($notification);
+  const { status, text, active } = useStore($notification);
 
   return (
     <div>

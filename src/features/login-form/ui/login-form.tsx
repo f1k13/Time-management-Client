@@ -23,7 +23,7 @@ const LoginForm = () => {
       });
       navigate(CALENDAR_ROUTE);
     } else {
-      setNotificationEvent({ status: "error", text: "", active: true });
+      setNotificationEvent({ status: "error", text: "assad", active: true });
     }
   };
 

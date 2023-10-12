@@ -8,5 +8,8 @@ export type Notification = {
   active: boolean;
 };
 
-export const $notification = createStore<Notification[]>([])
-  .on(setNotificationEvent, (_, payload) => payload)
+export const $notification = createStore<Notification>({
+  status: "info",
+  text: "",
+  active: false,
+}).on(setNotificationEvent, (_, payload) => payload);

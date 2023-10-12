@@ -5,8 +5,7 @@ import { createEffect } from "effector";
 import { User } from "@/entities/user/model/user";
 import { AxiosError } from "axios";
 import { setIsAuth } from ".";
-import { setNotificationEvent } from "@/entities/notification/lib/notification-events";
-import { errorsList } from "@/shared/lib/errors-form-list";
+
 
 export const registerFx = createEffect<
   { username: string; email: string; password: string },
@@ -21,13 +20,7 @@ export const registerFx = createEffect<
     setIsAuth(true);
     return data;
   } catch (error) {
-    setNotificationEvent({
-      error: "error",
-      text: error.data.response.message,
-      active: true,
-    });
     setIsAuth(false);
-    console.log(error?.data.response.message);
 
     return error;
   }
@@ -47,12 +40,6 @@ export const loginFx = createEffect<
     return data;
   } catch (error) {
     setIsAuth(false);
-    setNotificationEvent({
-      error: "error",
-      text: errorsList[error.data.response.message],
-      active: true,
-    });
-    console.log(error?.data.response.message);
     return error;
   }
 });
