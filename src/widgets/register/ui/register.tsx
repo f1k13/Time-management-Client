@@ -10,25 +10,31 @@ const Register = () => {
   const { status } = useStore($notification);
   console.log(status);
   return (
-    <div className="flex  justify-center items-center w-full">
-      <div className="flex flex-col items-center bg-authBG h-full rounded-xl py-10 w-2/4">
-        <h1 className="text-secondaryColor text-40px font-bold leading-normal mt-10">
+    <div className="flex w-full h-full items-center justify-between px-[50px]">
+      <div className="flex flex-col items-center justify-center bg-secondaryColorAcsent rounded-xl px-[26px] w-full h-[60%]">
+        <h1 className="text-secondaryColor text-40px font-bold leading-normal mt-5">
           Registration
         </h1>
-        <div className="mt-[45px] w-1/2">
+        <div className="w-full">
           <RegisterForm />
-          <p className="text-secondaryColor mt-5">
-            Have account?
+          <p className="text-secondaryColor my-5">
+            Have a account?
             <span
               className="ml-2 cursor-pointer"
               onClick={() => navigate(LOGIN_ROUTE)}
             >
-              Login
+              Login!
             </span>
           </p>
         </div>
       </div>
-      <img src={status === "error" ? peepsSad : peepsHappy} alt="" />
+      <div className="h-full w-1/2">
+        <img
+          className="w-full h-screen object-cover"
+          src={status === "error" ? peepsSad : peepsHappy}
+          alt="Peeps"
+        />
+      </div>
     </div>
   );
 };

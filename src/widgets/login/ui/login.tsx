@@ -12,26 +12,26 @@ const Login = () => {
   console.log(status);
   return (
     <div className="flex w-full h-full items-center justify-between px-[50px]">
-      <div className="flex flex-col items-center justify-center bg-authBG rounded-xl px-[26px] w-full h-[80%]">
-        <h1 className="text-mainColor text-40px font-bold leading-normal mt-5">
+      <div className="flex flex-col items-center justify-center bg-secondaryColorAcsent rounded-xl px-[26px] w-full h-[60%]">
+        <h1 className="text-mainColorAcsent text-40px font-bold leading-normal mt-5">
           Login
         </h1>
         <div className="w-full">
           <LoginForm />
-          <p className="text-mainColor mt-5">
-            No have account?
+          <p className="text-mainColorAcsent my-5">
+            No have a account?
             <span
               className="ml-2 cursor-pointer"
               onClick={() => navigate(REGISTER_ROUTE)}
             >
-              Register
+              Register!
             </span>
           </p>
         </div>
       </div>
-      <div className="h-full w-[50%]">
+      <div className="h-full w-1/2">
         <img
-          className="w-full h-full object-cover"
+          className="w-full h-screen object-cover"
           src={status === "error" ? peepsSad : peepsHappy}
           alt="Peeps"
         />

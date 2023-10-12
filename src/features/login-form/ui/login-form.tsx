@@ -28,25 +28,25 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-10 w-full">
+    <form onSubmit={onSubmit} className="flex flex-col gap-10">
       <TextField
-        label="Email"
+        label="Email*:"
         placeholder="Enter your email"
-        color="mainColor"
+        color="mainColorAcsent"
         value={fields.email.value}
         error={fields.email.firstError?.rule}
         onChange={(e) => fields.email.onChange(e.target.value)}
       />
       <TextField
-        label="Password"
+        label="Password*:"
         placeholder="Enter your password"
-        color="mainColor"
+        color="mainColorAcsent"
         value={fields.password.value}
         error={fields.password.firstError?.rule}
         onChange={(e) => fields.password.onChange(e.target.value)}
       />
       <button
-        className="bg-mainColor text-white rounded-2xl shadow-buttonLogin text-36px"
+        className="bg-mainColorAcsent font-bold text-white rounded-2xl shadow-buttonLogin text-36px"
         type="submit"
       >
         Login

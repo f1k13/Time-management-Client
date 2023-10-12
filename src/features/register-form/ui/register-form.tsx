@@ -34,7 +34,7 @@ const RegisterForm = () => {
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-10">
       <TextField
-        label="Email"
+        label="Email*:"
         placeholder="Enter your email"
         color="secondaryColor"
         value={fields.email.value}
@@ -42,7 +42,7 @@ const RegisterForm = () => {
         onChange={(e) => fields.email.onChange(e.target.value)}
       />
       <TextField
-        label="Username"
+        label="Username*:"
         placeholder="Enter your username"
         color="secondaryColor"
         value={fields.username.value}
@@ -50,7 +50,7 @@ const RegisterForm = () => {
         onChange={(e) => fields.username.onChange(e.target.value)}
       />
       <TextField
-        label="Password"
+        label="Password*:"
         placeholder="Enter your password"
         color="secondaryColor"
         value={fields.password.value}
@@ -58,7 +58,7 @@ const RegisterForm = () => {
         onChange={(e) => fields.password.onChange(e.target.value)}
       />
       <TextField
-        label="Repeat password"
+        label="Repeat password*:"
         placeholder="Repeat the password"
         color="secondaryColor"
         value={fields.repeatPassword.value}
@@ -66,7 +66,7 @@ const RegisterForm = () => {
         onChange={(e) => fields.repeatPassword.onChange(e.target.value)}
       />
       <button
-        className="bg-secondaryColor text-white rounded-2xl shadow-buttonRegister text-36px"
+        className="bg-secondaryColor text-white rounded-2xl shadow-buttonRegister text-36px font-bold"
         type="submit"
       >
         Register

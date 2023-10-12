@@ -32,7 +32,7 @@ const TextField = ({
   }`;
   return (
     <div className="flex flex-col gap-2 relative w-full">
-      <label className={`label text-${color}`} htmlFor={label}>
+      <label className={`label text-14px text-${color}`} htmlFor={label}>
         {label}
       </label>
       <input
@@ -45,7 +45,7 @@ const TextField = ({
       />
       <p className={placeHolderClassName}>{placeholder}</p>
       {error && (
-        <p className="absolute text-errorColor top-[100px]">
+        <p className="absolute text-errorColor left-[90%] font-medium top-[100px]">
           {errorsList[error]}
         </p>
       )}
