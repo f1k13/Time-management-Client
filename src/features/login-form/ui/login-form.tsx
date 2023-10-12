@@ -28,7 +28,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-10">
+    <form onSubmit={onSubmit} className="flex flex-col gap-10 w-full">
       <TextField
         label="Email"
         placeholder="Enter your email"

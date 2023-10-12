@@ -11,12 +11,12 @@ const Login = () => {
   const { status } = useStore($notification);
   console.log(status);
   return (
-    <div className="flex w-full h-full items-center justify-center">
-      <div className="flex flex-col items-center bg-authBG h-full rounded-xl py-10 w-2/4">
+    <div className="flex w-full h-full items-center justify-between px-[50px]">
+      <div className="flex flex-col items-center justify-center bg-authBG rounded-xl px-[26px] w-full h-[80%]">
         <h1 className="text-mainColor text-40px font-bold leading-normal mt-5">
           Login
         </h1>
-        <div className="w-1/2">
+        <div className="w-full">
           <LoginForm />
           <p className="text-mainColor mt-5">
             No have account?
@@ -29,11 +29,13 @@ const Login = () => {
           </p>
         </div>
       </div>
-      <img
-        className=""
-        src={status === "error" ? peepsSad : peepsHappy}
-        alt=""
-      />
+      <div className="h-full w-[50%]">
+        <img
+          className="w-full h-full object-cover"
+          src={status === "error" ? peepsSad : peepsHappy}
+          alt="Peeps"
+        />
+      </div>
     </div>
   );
 };

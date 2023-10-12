@@ -3,11 +3,9 @@ import Login from "@/widgets/login/ui/login";
 
 const LoginPage = () => {
   return (
-    <div>
-      <AuthLayout>
-        <Login />
-      </AuthLayout>
-    </div>
+    <AuthLayout>
+      <Login />
+    </AuthLayout>
   );
 };
 

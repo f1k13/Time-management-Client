@@ -1,6 +1,6 @@
-import { CalendarPage } from "@/pages/calendar-page";
-import { LoginPage } from "@/pages/login-page";
-import { RegisterPage } from "@/pages/register-page";
+import { CalendarPage } from "@/pages";
+import { LoginPage } from "@/pages";
+import { RegisterPage } from "@/pages";
 import { ReactNode } from "react";
 import { AuthLayout, MainLayout } from "../layouts";
 import { CALENDAR_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "./paths";
