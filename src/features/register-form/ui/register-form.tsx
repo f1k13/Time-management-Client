@@ -1,21 +1,46 @@
 import { TextField } from "@/shared/ui/text-field";
 import { useForm } from "effector-forms";
-import { FormEvent } from "react";
+import { FormEvent, useEffect } from "react";
 import { registerForm } from "../model/registration-form-state.ts";
+import { setAuthStatus } from "@/entities/auth-status/lib/auth-status-events.ts";
+import { useStore } from "effector-react/effector-react.mjs";
+import { $isAuth } from "@/entities/auth/model/auth.ts";
+import { useNavigate } from "react-router-dom";
+import { CALENDAR_ROUTE } from "@/app/routes/paths.ts";
 
 const RegisterForm = () => {
   const { fields, submit } = useForm(registerForm);
-
+  const isAuth = useStore($isAuth);
+  const navigate = useNavigate();
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
+    redirect();
   };
+
+  const redirect = () => {
+    if (
+      fields.email?.errors ||
+      fields.password?.errors ||
+      fields.username?.errors ||
+      fields.repeatPassword?.errors
+    ) {
+      setAuthStatus("error");
+    }
+  };
+  useEffect(() => {
+    redirect();
+    if (isAuth) {
+      navigate(CALENDAR_ROUTE);
+      setAuthStatus("success");
+    }
+  }, [isAuth]);
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-10">
       <TextField
         label="Email*:"
         placeholder="Enter your email"
-        color="secondaryColor"
+        labelClassName={"text-secondaryColor"}
         value={fields.email.value}
         error={fields.email.firstError?.rule}
         onChange={(e) => fields.email.onChange(e.target.value)}
@@ -23,7 +48,7 @@ const RegisterForm = () => {
       <TextField
         label="Username*:"
         placeholder="Enter your username"
-        color="secondaryColor"
+        labelClassName={"text-secondaryColor"}
         value={fields.username.value}
         error={fields.username.firstError?.rule}
         onChange={(e) => fields.username.onChange(e.target.value)}
@@ -31,7 +56,7 @@ const RegisterForm = () => {
       <TextField
         label="Password*:"
         placeholder="Enter your password"
-        color="secondaryColor"
+        labelClassName={"text-secondaryColor"}
         value={fields.password.value}
         error={fields.password.firstError?.rule}
         onChange={(e) => fields.password.onChange(e.target.value)}
@@ -39,7 +64,7 @@ const RegisterForm = () => {
       <TextField
         label="Repeat password*:"
         placeholder="Repeat the password"
-        color="secondaryColor"
+        labelClassName={"text-secondaryColor"}
         value={fields.repeatPassword.value}
         error={fields.repeatPassword.firstError?.rule}
         onChange={(e) => fields.repeatPassword.onChange(e.target.value)}

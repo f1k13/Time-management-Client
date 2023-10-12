@@ -5,15 +5,16 @@ import peepsHappy from "../../../shared/peeps/peeps-happy-mainbg.jpg";
 import peepsSad from "../../../shared/peeps/peeps-sad-mainbg.jpg";
 import { $authStatus } from "@/entities/auth-status/model/auth-status.ts";
 import { useStore } from "effector-react";
+import clsx from "clsx";
 const Register = () => {
   const navigate = useNavigate();
   const status = useStore($authStatus);
   console.log(status);
   return (
     <div className="flex w-full h-full items-center justify-between px-[50px]">
-      <div className="flex flex-col items-center justify-center bg-secondaryColorAccent rounded-xl px-[26px] w-full h-[60%]">
-        <h1 className="text-secondaryColor text-40px font-bold leading-normal mt-5">
-          Registration
+      <div className="flex flex-col items-center justify-center bg-secondaryColorAccent rounded-xl px-[26px] w-full h-[80%] max-w-[2000px]">
+        <h1 className="text-secondaryColor text-40px font-bold leading-normal mb-[76px]">
+          Register
         </h1>
         <div className="w-full">
           <RegisterForm />
@@ -23,18 +24,16 @@ const Register = () => {
               className="ml-2 cursor-pointer"
               onClick={() => navigate(LOGIN_ROUTE)}
             >
-              Login!
+              Register!
             </span>
           </p>
         </div>
       </div>
-      <div className="h-full w-1/2">
-        <img
-          className="w-full h-screen object-cover"
-          src={status === "error" ? peepsSad : peepsHappy}
-          alt="Peeps"
-        />
-      </div>
+      <img
+        className={clsx("w-full h-full max-w-[600px]")}
+        src={status === "success" ? peepsHappy : peepsSad}
+        alt="Peeps"
+      />
     </div>
   );
 };

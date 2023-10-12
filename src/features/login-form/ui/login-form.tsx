@@ -15,17 +15,20 @@ const LoginForm = () => {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
+    redirect();
+  };
+  const redirect = () => {
     if (fields.email?.errors || fields.password?.errors) {
       setAuthStatus("error");
     }
   };
-
-  // useEffect(() => {
-  //   if (isAuth) {
-  //     navigate(CALENDAR_ROUTE);
-  //   }
-  // }, [isAuth]);
-
+  useEffect(() => {
+    redirect();
+    if (isAuth) {
+      navigate(CALENDAR_ROUTE);
+      setAuthStatus("success");
+    }
+  }, [isAuth]);
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-10">
       <TextField

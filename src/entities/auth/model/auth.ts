@@ -12,4 +12,4 @@ export const $isAuth = createStore<boolean>(false)
   .on(getSelfFx.doneData, () => true)
   .on(getSelfFx.failData, () => false);
 
-$isAuth.watch(console.log);
+

@@ -9,15 +9,11 @@ export const registerFx = createEffect<
   User,
   AxiosError
 >(async (params: User) => {
-  try {
-    const { data } = await api.post("/auth/registration", {
-      ...params,
-    });
-    setToken(data.token);
-    return data;
-  } catch (error) {
-    return error;
-  }
+  const { data } = await api.post("/auth/registration", {
+    ...params,
+  });
+  setToken(data.token);
+  return data;
 });
 
 export const loginFx = createEffect<
