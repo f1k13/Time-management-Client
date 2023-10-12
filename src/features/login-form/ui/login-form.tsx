@@ -16,10 +16,14 @@ const LoginForm = () => {
     e.preventDefault();
     submit();
     if (isAuth) {
-      setNotificationEvent({ status: "success", text: "successfully login" });
+      setNotificationEvent({
+        status: "success",
+        text: "successfully login",
+        active: true,
+      });
       navigate(CALENDAR_ROUTE);
     } else {
-      setNotificationEvent({ status: "error", text: "successfully login" });
+      setNotificationEvent({ status: "error", text: "", active: true });
     }
   };
 

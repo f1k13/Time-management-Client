@@ -24,6 +24,7 @@ export const registerFx = createEffect<
     setNotificationEvent({
       error: "error",
       text: error.data.response.message,
+      active: true,
     });
     setIsAuth(false);
     console.log(error?.data.response.message);
@@ -49,6 +50,7 @@ export const loginFx = createEffect<
     setNotificationEvent({
       error: "error",
       text: errorsList[error.data.response.message],
+      active: true,
     });
     console.log(error?.data.response.message);
     return error;

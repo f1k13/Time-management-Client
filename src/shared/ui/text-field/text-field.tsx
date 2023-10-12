@@ -31,7 +31,7 @@ const TextField = ({
       : styles.placeholderInActive
   }`;
   return (
-    <div className="flex flex-col gap-2 relative">
+    <div className="flex flex-col gap-2 relative w-full">
       <label className={`label text-${color}`} htmlFor={label}>
         {label}
       </label>

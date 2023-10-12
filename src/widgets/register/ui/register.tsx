@@ -11,11 +11,11 @@ const Register = () => {
   console.log(status);
   return (
     <div className="flex  justify-center items-center w-full">
-      <div className="flex flex-col items-center bg-authBG h-full rounded-xl p-[50px]">
+      <div className="flex flex-col items-center bg-authBG h-full rounded-xl py-10 w-2/4">
         <h1 className="text-secondaryColor text-40px font-bold leading-normal mt-10">
           Registration
         </h1>
-        <div className="mt-[45px]">
+        <div className="mt-[45px] w-1/2">
           <RegisterForm />
           <p className="text-secondaryColor mt-5">
             Have account?

@@ -1,13 +1,12 @@
 import { createStore } from "effector";
-import {
+import { setNotificationEvent } from "../lib/notification-events";
 
-  setNotificationEvent,
-} from "../lib/notification-events";
 
 export type Notification = {
   status: "success" | "error" | "warning" | "info";
   text: string;
+  active: boolean;
 };
 
 export const $notification = createStore<Notification[]>([])
-  .on(setNotificationEvent, (value) => value)
+  .on(setNotificationEvent, (_, payload) => payload)

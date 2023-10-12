@@ -21,11 +21,13 @@ const RegisterForm = () => {
       setNotificationEvent({
         status: "success",
         text: "Successfully register in",
+        active: true,
       });
     } else {
       setNotificationEvent({
         status: "error",
-        text: "asdsa",
+        text: "",
+        active: true,
       });
     }
   };

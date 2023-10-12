@@ -12,11 +12,11 @@ const Login = () => {
   console.log(status);
   return (
     <div className="flex w-full h-full items-center justify-center">
-      <div className="flex flex-col items-center bg-authBG h-full rounded-xl p-20">
+      <div className="flex flex-col items-center bg-authBG h-full rounded-xl py-10 w-2/4">
         <h1 className="text-mainColor text-40px font-bold leading-normal mt-5">
           Login
         </h1>
-        <div className="mt-[45px]">
+        <div className="w-1/2">
           <LoginForm />
           <p className="text-mainColor mt-5">
             No have account?
