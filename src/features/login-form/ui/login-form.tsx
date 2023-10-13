@@ -8,6 +8,7 @@ import { useStore } from "effector-react";
 import { useNavigate } from "react-router-dom";
 import { CALENDAR_ROUTE } from "@/app/routes/paths.ts";
 
+
 const LoginForm = () => {
   const { fields, submit } = useForm(loginForm);
   const isAuth = useStore($isAuth);

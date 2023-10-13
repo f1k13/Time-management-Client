@@ -1,9 +1,8 @@
-import { $authStatus } from "@/entities/auth-status/model/auth-status.ts";
+import { $notifications } from "@/entities/notifications/model/notifications";
 import { useStore } from "effector-react/compat";
 
 const ErrorAlertHandler = () => {
-  const { status, text, active } = useStore($authStatus);
-
+  const { active, text, status } = useStore($notifications);
   return (
     <div>
       {text && (

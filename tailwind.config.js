@@ -24,6 +24,8 @@ module.exports = {
       mainColorAccent: "#0E7DFF",
       secondaryColorAccent: "#1D2129",
       errorColor: "#FF5B5B",
+      activeColor: "#4a4d54",
+      secondaryActiveColor: "#4a4d54",
     },
     boxShadow: {
       buttonRegister: "0px 8px 0px 0px #49B09D;",

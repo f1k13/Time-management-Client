@@ -1,3 +1,4 @@
+import { CALENDAR_ROUTE } from "@/app/routes/paths";
 import {
   CalendarIcon,
   FriendIcon,
@@ -7,8 +8,15 @@ import {
   StatisticsIcon,
 } from "@/shared/ui/icons";
 
-export const sideBarData = [
-  { id: 1, title: "Calendar", icon: <CalendarIcon /> },
+type SideBar = {
+  id: number;
+  title: string;
+  icon: JSX.Element;
+  link?: string;
+};
+
+export const sideBarData: SideBar[] = [
+  { id: 1, title: "Calendar", icon: <CalendarIcon />, link: CALENDAR_ROUTE },
   { id: 2, title: "Progress", icon: <ProgressIcon /> },
   { id: 3, title: "Statistics", icon: <StatisticsIcon /> },
   { id: 4, title: "Friend", icon: <FriendIcon /> },

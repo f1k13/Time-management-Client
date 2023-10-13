@@ -6,7 +6,7 @@ import { getToken } from "@/shared/lib";
 import { useStore } from "effector-react";
 import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { REGISTER_ROUTE } from "./routes/paths";
+import { CALENDAR_ROUTE, REGISTER_ROUTE } from "./routes/paths";
 import { authRoutes, publicRoutes } from "./routes/routes";
 import { NotFoundPage } from "@/pages/not-found-page";
 const AppRouter = () => {
@@ -17,6 +17,8 @@ const AppRouter = () => {
     if (!token) {
       setIsAuth(false);
       navigate(REGISTER_ROUTE);
+    } else {
+      navigate(CALENDAR_ROUTE);
     }
     setTokenToApi(String(token));
     getSelfFx();
