@@ -11,7 +11,7 @@ const SideBar = () => {
       <div className="flex cursor-pointer flex-col mt-5 justify-between">
         {sideBarData.map((item) => (
           <div
-            onClick={() => navigate(item.link || "")}
+            onClick={() => navigate(item.path || "")}
             className="flex items-center w-full h-10 pl-2 mt-5 hover:bg-secondaryActiveColor rounded-xl active:bg-activeColor"
             key={item.id}
           >

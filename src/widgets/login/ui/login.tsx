@@ -6,7 +6,7 @@ import peepsSad from "../../../shared/peeps/peeps-sad-mainbg.jpg";
 import { useStore } from "effector-react";
 import { $authStatus } from "@/entities/auth-status/model/auth-status.ts";
 import clsx from "clsx";
-import {setNotificationsEvent} from "@/entities/notifications/lib/notifications-events.ts";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,7 +28,6 @@ const Login = () => {
               Register!
             </span>
           </p>
-          <button onClick={() => setNotificationsEvent({text: 'sadsads', type: 'error'})} className='bg-white'>asdasddasdasdas</button>
         </div>
       </div>
       <img

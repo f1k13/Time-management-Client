@@ -9,7 +9,6 @@ import clsx from "clsx";
 const Register = () => {
   const navigate = useNavigate();
   const status = useStore($authStatus);
-  console.log(status);
   return (
     <div className="flex w-full h-full items-center justify-between px-[50px]">
       <div className="flex flex-col items-center justify-center bg-secondaryColorAccent rounded-xl px-[26px] w-full h-[80%] max-w-[2000px]">

@@ -20,10 +20,10 @@ const RegisterForm = () => {
 
   const redirect = () => {
     if (
-      fields.email?.errors ||
-      fields.password?.errors ||
+      fields.email?.firstError ||
+      fields.password?.firstError ||
       fields.username?.errors ||
-      fields.repeatPassword?.errors
+      fields.repeatPassword?.firstError
     ) {
       setAuthStatus("error");
     }

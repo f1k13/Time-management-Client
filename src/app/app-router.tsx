@@ -17,8 +17,10 @@ const AppRouter = () => {
     if (!token) {
       setIsAuth(false);
       navigate(REGISTER_ROUTE);
+    } else {
+      navigate(CALENDAR_ROUTE);
     }
-    // navigate(CALENDAR_ROUTE);
+
     setTokenToApi(String(token));
     getSelfFx();
   }, []);

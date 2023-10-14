@@ -6,3 +6,7 @@ export { default as NotesIcon } from "./menu-icons/notes-icon";
 export { default as PlanIcon } from "./menu-icons/plan-icon";
 export { default as BurgerMenuIcon } from "./nav-bar-icons/burger-menu-icon";
 export { default as NotificationIcon } from "./nav-bar-icons/notification-icon";
+export { default as errorIcon } from "./alert-icons/error-icon";
+export { default as infoIcon } from "./alert-icons/info-icon";
+export { default as successIcon } from "./alert-icons/success-icon";
+export { default as warningIcon } from "./alert-icons/warning-icon";
