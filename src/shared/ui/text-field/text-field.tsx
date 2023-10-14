@@ -1,8 +1,8 @@
-import { InputHTMLAttributes, useState } from "react";
+import { InputHTMLAttributes, memo, useState } from "react";
 import styles from "./text-field.module.scss";
 import clsx from "clsx";
 import { errorsList } from "@/shared/lib/errors-form-list";
-const TextField = ({
+const TextField = memo(({
   label,
   type,
   placeholder,
@@ -61,6 +61,6 @@ const TextField = ({
       </p>
     </div>
   );
-};
+});
 
 export default TextField;

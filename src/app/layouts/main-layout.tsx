@@ -1,10 +1,13 @@
+import { NavBar } from "@/widgets/nav-bar/ui";
 import { SideBar } from "@/widgets/side-bar/ui";
 import { ReactNode } from "react";
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="w-screen h-screen flex flex-col">
-      <div className="w-full h-[100px]">navbar</div>
+      <div className="w-full h-[100px]">
+        <NavBar />
+      </div>
       <div className="flex flex-1 w-full">
         <SideBar />
         <div className="p-[16px] w-full h-full">

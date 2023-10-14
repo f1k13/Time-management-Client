@@ -4,3 +4,5 @@ export { default as StatisticsIcon } from "./menu-icons/statistics-icon";
 export { default as FriendIcon } from "./menu-icons/friend-icon";
 export { default as NotesIcon } from "./menu-icons/notes-icon";
 export { default as PlanIcon } from "./menu-icons/plan-icon";
+export { default as BurgerMenuIcon } from "./nav-bar-icons/burger-menu-icon";
+export { default as NotificationIcon } from "./nav-bar-icons/notification-icon";
