@@ -3,25 +3,32 @@ import clsx from "clsx";
 import styles from "./alert-display.module.scss";
 import { AlertDataIcon } from "./lib/alert-icon-data";
 import { DeleteIcon } from "../icons";
+import { deleteAlert } from "@/entities/alert/lib/alert-events";
+import { motion } from "framer-motion";
 const AlertItem = ({ item }: { item: AlertType }) => {
-  console.log(item.type);
+  const alertRemove = () => {
+    const id = item.id;
+    deleteAlert(id);
+  };
+
   return (
-    <li
+    <motion.li
       className={clsx(
         styles[item.type],
-        "text-white h-[55px] flex items-center justify-between p-2 rounded-xl w-1/2"
+        "text-white h-[55px] flex items-center justify-between p-2 rounded-xl w-full"
       )}
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "auto" }}
+      exit={{ opacity: 0, height: 0 }}
     >
       <div className="flex items-center gap-1">
-        {AlertDataIcon.map((icon) => (
-          <div key={item.id}>{icon[item.type]}</div>
-        ))}
+        <div>{AlertDataIcon[item.type]}</div>
         <p>{item.text}</p>
       </div>
-      <button>
+      <button onClick={() => alertRemove()}>
         <DeleteIcon />
       </button>
-    </li>
+    </motion.li>
   );
 };
 

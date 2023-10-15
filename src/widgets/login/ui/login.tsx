@@ -31,7 +31,7 @@ const Login = () => {
         </div>
       </div>
       <img
-        className={clsx("w-full h-full max-w-[600px]")}
+        className={clsx("w-full h-full max-w-[700px]")}
         src={status === "success" ? peepsHappy : peepsSad}
         alt="Peeps"
       />

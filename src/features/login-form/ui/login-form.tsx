@@ -23,7 +23,6 @@ const LoginForm = () => {
     }
   };
   useEffect(() => {
-    redirect();
     if (isAuth) {
       navigate(CALENDAR_ROUTE);
       setAuthStatus("success");

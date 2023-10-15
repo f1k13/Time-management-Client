@@ -8,7 +8,7 @@ const SideBar = () => {
       <h1 className="text-secondaryTextColor text-14px uppercase">
         Your workspace
       </h1>
-      <ul className="flex cursor-pointer flex-col mt-5 justify-between">
+      <ul className="flex cursor-pointer flex-col mt-[24px] justify-between">
         {sideBarData.map((item) => (
           <li
             onClick={() => navigate(item.path || "")}

@@ -1,8 +1,7 @@
-import { addAlert } from "@/entities/alert/lib/alert-events";
 
 const CalendarPage = () => {
   return (
-    <div onClick={() => addAlert({ type: "info", text: "test" })}>
+    <div>
       КАЛЕНДАРЬ
     </div>
   );

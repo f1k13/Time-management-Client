@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="w-screen h-screen flex flex-col">
-      <div className="w-full h-[100px]">
+      <div className="w-full h-[81px]">
         <NavBar />
       </div>
       <div className="flex flex-1 w-full">
