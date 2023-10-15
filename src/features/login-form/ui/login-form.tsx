@@ -22,12 +22,14 @@ const LoginForm = () => {
       setAuthStatus("error");
     }
   };
+
   useEffect(() => {
     if (isAuth) {
       navigate(CALENDAR_ROUTE);
       setAuthStatus("success");
     }
   }, [isAuth]);
+
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-10">
       <TextField

@@ -7,7 +7,6 @@ import { useStore } from "effector-react";
 import { $authStatus } from "@/entities/auth-status/model/auth-status.ts";
 import clsx from "clsx";
 
-
 const Login = () => {
   const navigate = useNavigate();
   const status = useStore($authStatus);

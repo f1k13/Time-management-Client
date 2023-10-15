@@ -15,7 +15,6 @@ const AppRouter = () => {
     if (!token) {
       setIsAuth(false);
     }
-
     setTokenToApi(String(token));
     getSelfFx();
   }, []);
