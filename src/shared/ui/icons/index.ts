@@ -10,3 +10,4 @@ export { default as errorIcon } from "./alert-icons/error-icon";
 export { default as infoIcon } from "./alert-icons/info-icon";
 export { default as successIcon } from "./alert-icons/success-icon";
 export { default as warningIcon } from "./alert-icons/warning-icon";
+export { default as DeleteIcon } from "./alert-icons/delete-icon";
