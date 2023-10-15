@@ -7,7 +7,6 @@ import { useStore } from "effector-react";
 import { $authStatus } from "@/entities/auth-status/model/auth-status.ts";
 import clsx from "clsx";
 
-
 const Login = () => {
   const navigate = useNavigate();
   const status = useStore($authStatus);
@@ -31,7 +30,7 @@ const Login = () => {
         </div>
       </div>
       <img
-        className={clsx("w-full h-full max-w-[600px]")}
+        className={clsx("w-full h-full max-w-[750px]")}
         src={status === "success" ? peepsHappy : peepsSad}
         alt="Peeps"
       />

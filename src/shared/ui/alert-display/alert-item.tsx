@@ -9,13 +9,11 @@ const AlertItem = ({ item }: { item: AlertType }) => {
     <li
       className={clsx(
         styles[item.type],
-        "text-white h-[55px] flex items-center justify-between p-2 rounded-xl w-1/2"
+        "text-white h-[55px] flex items-center justify-between p-2 rounded-xl w-full",
       )}
     >
       <div className="flex items-center gap-1">
-        {AlertDataIcon.map((icon) => (
-          <div key={item.id}>{icon[item.type]}</div>
-        ))}
+        {AlertDataIcon[item.type]}
         <p>{item.text}</p>
       </div>
       <button>
