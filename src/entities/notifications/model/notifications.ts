@@ -1,18 +1,28 @@
 import { createStore } from "effector";
-import { setNotificationsEvent } from "../lib/notifications-events";
+import {
+  deleteAlert,
+  setNotificationsEvent,
+} from "../lib/notifications-events";
 
-export type Notification = {
-  status: "success" | "error" | "warning" | "info";
+export type AlertType = {
+  id: string;
+  type: "success" | "error" | "warning" | "info";
   text: string;
-  active: true;
 };
 
-export const $notifications = createStore<Notification[]>([
-  {
-    status: "success",
-    text: "",
-    active: true,
-  },
-]).on(setNotificationsEvent, (state, notification) => {
-  return [...state, notification];
-});
+export const $notifications = createStore<AlertType[]>([])
+  .on(setNotificationsEvent, (state, notification) => {
+    return [...state, { ...notification, id: Date.now().toString() }];
+  })
+  .on(deleteAlert, (state, id) => state.filter((item) => item.id !== id));
+
+const test = (data: AlertType[]) => {
+  const alert = data.at(-1);
+  if (alert) {
+    setTimeout(() => {
+      deleteAlert(alert.id);
+    }, 5000);
+  }
+};
+
+$notifications.watch(test);

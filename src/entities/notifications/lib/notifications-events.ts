@@ -1,4 +1,5 @@
 import { createEvent } from "effector";
-import { Notification } from "../model/notifications";
+import { AlertType } from "../model/notifications";
 
-export const setNotificationsEvent = createEvent<Notification>();
+export const setNotificationsEvent = createEvent<Omit<AlertType, "id">>();
+export const deleteAlert = createEvent<string>()
