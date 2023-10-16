@@ -7,8 +7,9 @@ module.exports = {
     fontSize: {
       "14px": "14px",
       "20px": "20px",
-      "40px": "40px",
+      "32px": "32px",
       "36px": "36px",
+      "40px": "40px",
     },
     screens: {
       tablet: "640px",
