@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes/routes";
 import { NotFoundPage } from "@/pages/not-found-page";
+import { Loader } from "@/features/loader/ui";
 const AppRouter = () => {
   const isAuth = useStore($isAuth);
   const isLoading = useStore(getSelfFx.pending);
@@ -37,10 +38,7 @@ const AppRouter = () => {
       {publicRoutes.map(({ path, Component }) => (
         <Route key={path} path={path} element={<Component />} />
       ))}
-      <Route
-        path="*"
-        element={isLoading ? <h1>Loading...</h1> : <NotFoundPage />}
-      />
+      <Route path="*" element={isLoading ? <Loader /> : <NotFoundPage />} />
     </Routes>
   );
 };
