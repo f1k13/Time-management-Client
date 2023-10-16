@@ -15,7 +15,7 @@ type SideBar = {
   path?: string;
 };
 
-export const sideBarData: SideBar[] = [
+export const sidebarData: SideBar[] = [
   { id: 1, title: "Calendar", icon: <CalendarIcon />, path: CALENDAR_ROUTE },
   { id: 2, title: "Progress", icon: <ProgressIcon /> },
   { id: 3, title: "Statistics", icon: <StatisticsIcon /> },

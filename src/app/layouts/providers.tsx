@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import { ReactNode } from "react";
-import { AlertDisplay } from "@/shared/ui/alert-display";
+import { AlertDisplay } from "@/features/alert-display/ui";
 
 const Providers = ({ children }: { children: ReactNode }) => {
   return (

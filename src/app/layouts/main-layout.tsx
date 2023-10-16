@@ -1,4 +1,4 @@
-import { NavBar } from "@/widgets/nav-bar";
+import { NavBar } from "../../widgets/navbar";
 import { SideBar } from "@/widgets/side-bar/ui";
 import { ReactNode } from "react";
 

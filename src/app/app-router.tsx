@@ -5,18 +5,17 @@ import { setTokenToApi } from "@/shared/api/api.ts";
 import { getToken } from "@/shared/lib";
 import { useStore } from "effector-react";
 import { useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes/routes";
 import { NotFoundPage } from "@/pages/not-found-page";
-import { REGISTER_ROUTE } from "./routes/paths";
 const AppRouter = () => {
   const isAuth = useStore($isAuth);
-  const navigate = useNavigate();
+  const isLoading = useStore(getSelfFx.pending);
   useEffect(() => {
     const token = getToken();
-    if (!token && !isAuth) {
+    if (!token || !isAuth) {
       setIsAuth(false);
-      navigate(REGISTER_ROUTE);
+      // navigate(REGISTER_ROUTE);
     }
     setTokenToApi(String(token));
     getSelfFx();
@@ -38,7 +37,10 @@ const AppRouter = () => {
       {publicRoutes.map(({ path, Component }) => (
         <Route key={path} path={path} element={<Component />} />
       ))}
-      <Route path="*" element={<NotFoundPage />} />
+      <Route
+        path="*"
+        element={isLoading ? <h1>Loading...</h1> : <NotFoundPage />}
+      />
     </Routes>
   );
 };

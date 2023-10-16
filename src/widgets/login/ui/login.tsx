@@ -1,8 +1,8 @@
 import { REGISTER_ROUTE } from "@/app/routes/paths";
 import { LoginForm } from "@/features/login-form/ui";
 import { useNavigate } from "react-router-dom";
-import peepsHappy from "../../../shared/peeps/peeps-happy-mainbg.jpg";
-import peepsSad from "../../../shared/peeps/peeps-sad-mainbg.jpg";
+import peepsHappy from "@/shared/assets/peeps/peeps-happy-mainbg.jpg";
+import peepsSad from "@/shared/assets/peeps/peeps-sad-mainbg.jpg";
 import { useStore } from "effector-react";
 import { $authStatus } from "@/entities/auth-status/model/auth-status.ts";
 import clsx from "clsx";

@@ -1,6 +1,6 @@
-import { $alert } from "@/entities/alert/model/alert";
+import { $alert } from "@/entities/alert/model/alert.ts";
 import { useStore } from "effector-react/compat";
-import AlertItem from "./alert-item";
+import AlertItem from "./alert-item.tsx";
 import { AnimatePresence } from "framer-motion";
 
 const AlertDisplay = () => {
