@@ -5,19 +5,23 @@ const CalendarCell = ({
   item,
   index,
 }: {
-  item: { day: string; currentMonth: string };
+  item: { day: string; currentMonth: string; weekend: string };
   index: number;
 }) => {
   const today = moment().date();
   const month = moment().format("MMMM");
+
   return (
     <div
       className={clsx(
         "border-[1px] p-2 w-full h-full min-h-[136px] min-w-[136px] border-mainBorder",
         today === index + 1 &&
           item.currentMonth === month &&
-          "border-mainColorAccent"
+          "border-mainColorAccent",
+        item.weekend === "Saturday" && "border-mainColorAccent",
+        item.weekend === "Sunday" && "border-mainColorAccent"
       )}
+      onClick={() => console.log(index)}
     >
       <p
         className={clsx(

@@ -8,8 +8,7 @@ const Calendar = () => {
   const today = moment();
   const [currentMonth, setCurrentMonth] = useState(today);
   const month = currentMonth.format("MMMM");
-  
-  
+  const year = currentMonth.format("YYYY");
   
   const nextMonth = () => {
     setCurrentMonth(moment(currentMonth).add(1, "months"));
@@ -24,6 +23,7 @@ const Calendar = () => {
         <h1 className="text-white text-32px font-medium">Calendar</h1>
         <CalendarController
           month={month}
+          year={year}
           nextMonth={nextMonth}
           prevMonth={prevMonth}
         />
