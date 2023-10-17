@@ -12,7 +12,7 @@ const Sidebar = () => {
         {sidebarData.map((item) => (
           <li
             onClick={() => navigate(item.path || "")}
-            className="flex items-center w-[full] h-[27px] py-[15px] pl-[5px] mt-5 hover:bg-secondaryActiveColor rounded-xl active:bg-activeColor"
+            className="flex items-center w-[full] h-[27px] py-[20px] pl-[5px] mt-5 hover:bg-secondaryActiveColor rounded-xl active:bg-activeColor"
             key={item.id}
           >
             <div>{item.icon}</div>

@@ -8,38 +8,39 @@ const Calendar = () => {
   const today = moment();
   const [currentMonth, setCurrentMonth] = useState(today);
   const month = currentMonth.format("MMMM");
-  console.log(today);
+  
+  
+  
   const nextMonth = () => {
     setCurrentMonth(moment(currentMonth).add(1, "months"));
   };
   const prevMonth = () => {
     setCurrentMonth(moment(currentMonth).subtract(1, "months"));
   };
-  const days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return (
-    <div className="p-[16px] w-full h-auto min-h-full flex flex-col">
-      <h1 className="text-white text-32px font-medium">Calendar</h1>
-      <CalendarController
-        month={month}
-        nextMonth={nextMonth}
-        prevMonth={prevMonth}
-      />
-      <div className="flex justify-between">
+    <div className="p-[16px] w-full  h-full flex flex-col">
+      <div className="flex flex-col">
+        <h1 className="text-white text-32px font-medium">Calendar</h1>
+        <CalendarController
+          month={month}
+          nextMonth={nextMonth}
+          prevMonth={prevMonth}
+        />
+      </div>
+      <div className="w-full flex justify-around mt-[48px]">
         {days.map((day) => (
-          <p key={day}>{day}</p>
+          <p
+            key={day}
+            className="pl-[11%] text-secondaryTextColor text-12px font-normal"
+          >
+            {day}
+          </p>
         ))}
       </div>
-      <div className="grid grid-cols-8  ">
+      <div className="grid grid-cols-7 ">
         {calendarData(currentMonth).map((item, index) => (
-          <CalendarCell key={index} item={item} />
+          <CalendarCell key={index} index={index} item={item} />
         ))}
       </div>
     </div>

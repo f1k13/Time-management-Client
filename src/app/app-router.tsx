@@ -16,8 +16,8 @@ const AppRouter = () => {
     const token = getToken();
     if (!token || !isAuth) {
       setIsAuth(false);
-      // navigate(REGISTER_ROUTE);
     }
+    
     setTokenToApi(String(token));
     getSelfFx();
   }, []);
