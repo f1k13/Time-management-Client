@@ -1,3 +1,4 @@
+import { CalendarType } from "@/widgets/calendar/lib/calendar-data";
 import clsx from "clsx";
 import moment from "moment";
 
@@ -5,23 +6,23 @@ const CalendarCell = ({
   item,
   index,
 }: {
-  item: { day: string; currentMonth: string; dayOfWeek: string };
+  item: CalendarType;
   index: number;
 }) => {
   const today = moment().date();
   const month = moment().format("MMMM");
-
+  const year = moment().format("YYYY");
   return (
     <div
       className={clsx(
-        "border-[1px] p-2 w-full h-full min-h-[100px] min-w-[100px] border-mainBorder",
-        today === index + 1 &&
+        "border-[1px] p-2 w-full h-full min-h-[136px] min-w-[136px] border-mainBorder",
+        today === index + 2 &&
           item.currentMonth === month &&
+          item.currentYear === year &&
           "border-mainColorAccent",
         item.dayOfWeek === "Saturday" && "bg-mainBorder",
         item.dayOfWeek === "Sunday" && "bg-mainBorder"
       )}
-      onClick={() => console.log(index)}
     >
       <p
         className={clsx(

@@ -9,7 +9,7 @@ const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(today);
   const month = currentMonth.format("MMMM");
   const year = currentMonth.format("YYYY");
-  
+
   const nextMonth = () => {
     setCurrentMonth(moment(currentMonth).add(1, "months"));
   };

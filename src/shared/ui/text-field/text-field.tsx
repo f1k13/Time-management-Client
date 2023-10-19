@@ -37,7 +37,7 @@ const TextField = memo(
         <label
           className={clsx(
             labelClassName,
-            "text-14px font-bold text-mainColorAccent",
+            "text-14px font-bold text-mainColorAccent"
           )}
           htmlFor={label}
         >
@@ -55,14 +55,14 @@ const TextField = memo(
         <p
           className={clsx(
             "absolute text-errorColor right-0 font-medium bottom-[-25px] transition opacity-0",
-            error && "opacity-100",
+            error && "opacity-100"
           )}
         >
           {errorsList[error || ""]}
         </p>
       </div>
     );
-  },
+  }
 );
 
 export default TextField;

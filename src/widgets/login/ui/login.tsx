@@ -18,7 +18,7 @@ const Login = () => {
         </h1>
         <div className="w-full">
           <LoginForm />
-          <p className="text-mainColorAccent my-5">
+          <p className="text-mainColorAccent my-5 transition-all hover:text-textSecondary">
             No have an account?
             <span
               className="ml-2 cursor-pointer"

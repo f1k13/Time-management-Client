@@ -11,19 +11,19 @@ const Register = () => {
   const status = useStore($authStatus);
   return (
     <div className="flex w-full h-full items-center justify-between px-[50px]">
-      <div className="flex flex-col items-center justify-center bg-secondaryColorAccent rounded-xl px-[26px] w-full h-[90%] max-w-[2000px]">
+      <div className="flex flex-col items-center justify-center bg-secondaryColorAccent rounded-xl px-[26px] w-full h-[95%] max-w-[2000px]">
         <h1 className="text-secondaryColor text-40px font-bold leading-normal my-[76px]">
           Register
         </h1>
         <div className="w-full">
           <RegisterForm />
-          <p className="text-secondaryColor my-5">
-            No have an account?
+          <p className="text-secondaryColor transition-all my-5 hover:text-textSecondary">
+            Have an account?
             <span
               className="ml-2 cursor-pointer"
               onClick={() => navigate(LOGIN_ROUTE)}
             >
-              Register!
+              Login!
             </span>
           </p>
         </div>
