@@ -11,3 +11,5 @@ export { default as infoIcon } from "./alert-icons/info-icon";
 export { default as successIcon } from "./alert-icons/success-icon";
 export { default as warningIcon } from "./alert-icons/warning-icon";
 export { default as DeleteIcon } from "./alert-icons/delete-icon";
+export { default as ArrowLeft } from "./calendar-icon/arrow-left";
+export { default as ArrowRight } from "./calendar-icon/arrow-right";

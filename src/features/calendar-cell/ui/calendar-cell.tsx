@@ -15,13 +15,13 @@ const CalendarCell = ({
   return (
     <div
       className={clsx(
-        "border-[1px] p-2 w-full h-full min-h-[136px] min-w-[136px] border-mainBorder",
+        "border-[1px] p-2 w-full h-full min-h-[110px] min-w-[100px] border-mainBorder",
         today === index + 2 &&
           item.currentMonth === month &&
           item.currentYear === year &&
           "border-mainColorAccent",
-        item.dayOfWeek === "Saturday" && "bg-mainBorder",
-        item.dayOfWeek === "Sunday" && "bg-mainBorder"
+        item.dayOfWeek === "Saturday" && "bg-mainBorder bg-opacity-50",
+        item.dayOfWeek === "Sunday" && "bg-mainBorder bg-opacity-50"
       )}
     >
       <p

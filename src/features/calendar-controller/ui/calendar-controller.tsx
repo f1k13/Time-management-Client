@@ -1,31 +1,31 @@
+import { ArrowLeft, ArrowRight } from "@/shared/ui/icons";
+import moment from "moment";
+
 const CalendarController = ({
   month,
   nextMonth,
   prevMonth,
-  year,
 }: {
   month: string;
   year: string;
   nextMonth: () => void;
   prevMonth: () => void;
 }) => {
+  const today = moment().format("DD.MM.YYYY");
+  console.log(today);
+
   return (
-    <div className="mt-5 flex w-full items-center">
-      <p className="text-mainColorAccent w-60 text-20px font-bold">
-        {month} {year}
-      </p>
-      <div className="flex ml-5 gap-10">
-        <button
-          className="bg-secondaryActiveColor rounded-xl py-2 px-5 text-white hover:bg-mainColorAccent transition-all duration-300"
-          onClick={prevMonth}
-        >
-          Previus month
+    <div className="flex w-full items-center justify-end">
+      <p className="text-mainColorAccent w-100 text-20px font-bold"> Today  {today}</p>
+      <div className="flex w-1/4 items-center ml-5 gap-1">
+        <button onClick={prevMonth}>
+          <ArrowLeft />
         </button>
-        <button
-          className="bg-secondaryActiveColor rounded-xl py-2 px-5 text-white hover:bg-mainColorAccent transition-all duration-300"
-          onClick={nextMonth}
-        >
-          Next month
+        <p className="text-white uppercase bg-textSecondary px-10 py-2 text -32px rounded-xl">
+          {month}
+        </p>
+        <button onClick={nextMonth}>
+          <ArrowRight />
         </button>
       </div>
     </div>
