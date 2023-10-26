@@ -15,7 +15,7 @@ const CalendarCell = ({
   return (
     <div
       className={clsx(
-        "border-[1px] p-2 w-full h-full min-h-[110px] min-w-[100px] border-mainBorder",
+        "border-[1px] w-full p-2 min-h-[110px] min-w-[136px] border-mainBorder",
         today === index + 2 &&
           item.currentMonth === month &&
           item.currentYear === year &&

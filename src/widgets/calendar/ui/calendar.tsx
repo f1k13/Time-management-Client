@@ -12,14 +12,15 @@ const Calendar = () => {
   const nextMonth = () => {
     setCurrentMonth(moment(currentMonth).add(1, "months"));
   };
+  
   const prevMonth = () => {
     setCurrentMonth(moment(currentMonth).subtract(1, "months"));
   };
-  
+
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return (
     <div className=" w-full p-[5px] h-full flex flex-col">
-      <div className="flex items-center w-full">
+      <div className="flex items-center w-full justify-between">
         <h1 className="text-white text-32px font-medium">Calendar</h1>
         <CalendarController
           month={month}
@@ -38,7 +39,7 @@ const Calendar = () => {
           </p>
         ))}
       </div>
-      <div className="grid grid-cols-7 w-full ">
+      <div className="grid grid-cols-7 ">
         {calendarData(currentMonth).map((item, index) => (
           <CalendarCell key={index} index={index} item={item} />
         ))}

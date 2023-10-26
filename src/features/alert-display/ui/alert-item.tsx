@@ -23,7 +23,7 @@ const AlertItem = ({ item }: { item: AlertType }) => {
     >
       <div className="flex items-center gap-1">
         <div>{AlertDataIcon[item.type]}</div>
-        <p>{item.text}</p>
+        <p className="ml-2">{item.text}</p>
       </div>
       <button onClick={() => alertRemove()}>
         <DeleteIcon />

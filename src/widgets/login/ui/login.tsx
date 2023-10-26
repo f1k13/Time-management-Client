@@ -1,24 +1,19 @@
 import { REGISTER_ROUTE } from "@/app/routes/paths";
 import { LoginForm } from "@/features/login-form/ui";
 import { useNavigate } from "react-router-dom";
-import peepsHappy from "@/shared/assets/peeps/peeps-happy-mainbg.jpg";
-import peepsSad from "@/shared/assets/peeps/peeps-sad-mainbg.jpg";
-import { useStore } from "effector-react";
-import { $authStatus } from "@/entities/auth-status/model/auth-status.ts";
-import clsx from "clsx";
+
 
 const Login = () => {
   const navigate = useNavigate();
-  const status = useStore($authStatus);
   return (
-    <div className="flex w-full h-full items-center justify-between px-[50px]">
-      <div className="flex flex-col items-center justify-center bg-secondaryColorAccent rounded-xl px-[26px] w-full h-[80%] max-w-[2000px]">
+    <div className="flex w-full h-full items-center px-[50px]">
+      <div className="flex flex-col items-center justify-center bg-secondaryColorAccent rounded-xl px-[26px] w-full h-[80%] ">
         <h1 className="text-mainColorAccent text-40px font-bold leading-normal mb-[76px]">
           Login
         </h1>
         <div className="w-full">
           <LoginForm />
-          <p className="text-mainColorAccent my-5 transition-all hover:text-textSecondary">
+          <p className="text-mainColorAccent my-5 transition-all ">
             No have an account?
             <span
               className="ml-2 cursor-pointer"
@@ -29,11 +24,6 @@ const Login = () => {
           </p>
         </div>
       </div>
-      <img
-        className={clsx("w-full h-full max-w-[700px]")}
-        src={status === "success" ? peepsHappy : peepsSad}
-        alt="Peeps"
-      />
     </div>
   );
 };

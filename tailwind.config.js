@@ -20,7 +20,6 @@ module.exports = {
     colors: {
       secondaryTextColor: "#3F454D",
       textSecondary: "#3F454D",
-      
       white: "#FFFFFF",
       mainBorder: "#2F333B",
       mainBG: "#1D2129",
