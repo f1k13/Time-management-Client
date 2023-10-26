@@ -21,7 +21,7 @@ const Calendar = () => {
   return (
     <div className=" w-full p-[5px] h-full flex flex-col">
       <div className="flex items-center w-full justify-between">
-        <h1 className="text-white text-32px font-medium">Calendar</h1>
+        <h1 className="text-white text-32px ml-2 font-medium">Calendar</h1>
         <CalendarController
           month={month}
           year={year}

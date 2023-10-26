@@ -9,13 +9,14 @@ const TextField = memo(
     placeholder,
     labelClassName,
     error,
+    height,
     ...rest
   }: {
     label?: string;
     type?: string;
     error?: string | null;
     placeholder?: string;
-    color?: string | null;
+    height?: number;
     labelClassName?: string;
   } & InputHTMLAttributes<HTMLInputElement>) => {
     const [isFocus, setIsFocus] = useState<boolean>(false);
@@ -25,13 +26,16 @@ const TextField = memo(
     const onBlur = () => {
       setIsFocus(false);
     };
-    const placeHolderClassName = `${styles.placeholder} ${
-      isFocus
-        ? styles.placeholderActive
-        : rest.value
-        ? styles.placeholderActive
-        : styles.placeholderInActive
-    }`;
+    const placeHolderClassName = clsx(
+      styles.placeholder,
+      isFocus ? styles.placeholderActive : styles.placeholderInActive
+    );
+    const textFieldClassName = clsx(
+      styles.root,
+      "h-[60px]",
+      height && `h-[${height}px]`,
+    );
+    console.log(textFieldClassName);
     return (
       <div className="flex flex-col gap-2 relative w-full">
         <label
@@ -45,7 +49,7 @@ const TextField = memo(
         </label>
         <input
           {...rest}
-          className={clsx(styles.root)}
+          className={textFieldClassName}
           onFocus={onFocus}
           onBlur={onBlur}
           id={label}

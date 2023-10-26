@@ -27,7 +27,7 @@ const CalendarController = ({
           <ArrowRight />
         </button>
       </div>
-      <p className="text-white ml-10 uppercase bg-textSecondary px-10 py-2 text -32px rounded-xl">
+      <p className="text-white ml-10 uppercase bg-textSecondary px-10 mr-5 py-2 text -32px rounded-xl">
         {year}
       </p>
     </div>

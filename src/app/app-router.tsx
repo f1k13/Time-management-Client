@@ -14,6 +14,7 @@ const AppRouter = () => {
   const isAuth = useStore($isAuth);
   const isLoading = useStore(getSelfFx.pending);
   const navigate = useNavigate();
+  console.log(isLoading);
   useEffect(() => {
     const token = getToken();
     if (!token || !isAuth) {

@@ -3,7 +3,12 @@ import { LoginPage } from "@/pages";
 import { RegisterPage } from "@/pages";
 import { ReactNode } from "react";
 import { AuthLayout, MainLayout } from "../layouts";
-import { CALENDAR_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "./paths";
+import {
+  CALENDAR_ROUTE,
+  LOGIN_ROUTE,
+  REGISTER_ROUTE,
+} from "./paths";
+import { CalendarDay } from "@/pages/calendar-page/calendar-day";
 
 type RouteType = {
   path: string;
@@ -28,6 +33,11 @@ export const authRoutes: RouteType[] = [
   {
     path: CALENDAR_ROUTE,
     Component: CalendarPage,
+    Layout: MainLayout,
+  },
+  {
+    path: CALENDAR_ROUTE + "/:id",
+    Component: CalendarDay,
     Layout: MainLayout,
   },
 ];
