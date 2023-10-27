@@ -28,12 +28,16 @@ const TextField = memo(
     };
     const placeHolderClassName = clsx(
       styles.placeholder,
-      isFocus ? styles.placeholderActive : styles.placeholderInActive
+      isFocus
+        ? styles.placeholderActive
+        : rest.value
+        ? styles.placeholderActive
+        : styles.placeholderInActive
     );
     const textFieldClassName = clsx(
       styles.root,
       "h-[60px]",
-      height && `h-[${height}px]`,
+      height && `h-${5}`
     );
     console.log(textFieldClassName);
     return (

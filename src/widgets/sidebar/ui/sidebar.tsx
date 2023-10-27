@@ -1,11 +1,10 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { sidebarData } from "../lib/sidebar-data.tsx";
 import clsx from "clsx";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  
+
   return (
     <div className="border-r px-5 py-5 bg-mainBG border-mainBorder flex flex-col w-[220px] h-full">
       <h1 className="text-secondaryTextColor text-14px uppercase">
@@ -16,8 +15,7 @@ const Sidebar = () => {
           <li
             onClick={() => navigate(item.path || "")}
             className={clsx(
-              "flex items-center w-[full] h-[27px] py-[20px] pl-[5px] mt-5 hover:bg-secondaryActiveColor rounded-xl",
-              location.pathname === item.path && "bg-mainColorAccent hover:bg-mainColorAccent "
+              "flex items-center w-[full] h-[27px] py-[20px] pl-[5px] mt-5  rounded-xl hover:bg-mainColorAccent"
             )}
             key={item.id}
           >

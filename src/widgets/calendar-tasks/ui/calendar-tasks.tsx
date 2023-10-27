@@ -1,4 +1,5 @@
-import TasksForm from "@/features/tasks-form/ui/tasks-form";
+
+import { TasksForm } from "@/features/tasks-form/ui";
 import { ArrowRight } from "@/shared/ui/icons";
 
 const CalendarFormTasks = ({ item }: { item?: string }) => {
