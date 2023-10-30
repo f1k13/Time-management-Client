@@ -2,6 +2,17 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  background-color: #191d25;
+  width: 100%;
+  border-radius: 10px;
+  color: #fff;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: 15px;
+  outline: none;
 }
 
 .placeholder {
@@ -23,19 +34,4 @@
   position: absolute;
   bottom: 1.4rem;
   left: 14px;
-}
-
-.root {
-  background-color: #191d25;
-  width: 100%;
-  border-radius: 10px;
-  color: #fff;
-  padding-top: 5px;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  padding-left: 15px;
-  outline: none;
 }

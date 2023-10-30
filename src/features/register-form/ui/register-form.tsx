@@ -2,7 +2,7 @@ import { TextField } from "@/shared/ui/text-field";
 import { useForm } from "effector-forms";
 import { FormEvent, useEffect } from "react";
 import { registerForm } from "../model/registration-form-state.ts";
-import { setAuthStatus } from "@/entities/auth-status/lib/auth-status-events.ts";
+
 import { useStore } from "effector-react/effector-react.mjs";
 import { $isAuth } from "@/entities/auth/model/auth.ts";
 import { useNavigate } from "react-router-dom";
@@ -15,27 +15,15 @@ const RegisterForm = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
-    redirect();
-  };
-
-  const redirect = () => {
-    if (
-      fields.email?.firstError ||
-      fields.password?.firstError ||
-      fields.username?.errors ||
-      fields.repeatPassword?.firstError
-    ) {
-      setAuthStatus("error");
-    }
   };
   useEffect(() => {
     if (isAuth) {
       navigate(CALENDAR_ROUTE);
-      setAuthStatus("success");
     }
   }, [isAuth]);
+
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-10">
+    <form onSubmit={onSubmit} className="flex flex-col gap-10 ">
       <TextField
         label="Email*:"
         placeholder="Enter your email"
@@ -59,6 +47,7 @@ const RegisterForm = () => {
         value={fields.password.value}
         error={fields.password.firstError?.rule}
         onChange={(e) => fields.password.onChange(e.target.value)}
+        type="password"
       />
       <TextField
         label="Repeat password*:"
@@ -67,6 +56,7 @@ const RegisterForm = () => {
         value={fields.repeatPassword.value}
         error={fields.repeatPassword.firstError?.rule}
         onChange={(e) => fields.repeatPassword.onChange(e.target.value)}
+        type="password"
       />
       <button
         className="bg-secondaryColor text-white rounded-2xl shadow-buttonRegister text-36px font-bold"

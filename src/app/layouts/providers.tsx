@@ -9,7 +9,6 @@ const Providers = ({ children }: { children: ReactNode }) => {
       <AlertDisplay />
       {children}
     </BrowserRouter>
-    
   );
 };
 

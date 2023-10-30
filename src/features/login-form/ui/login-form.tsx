@@ -2,7 +2,7 @@ import { TextField } from "@/shared/ui/text-field";
 import { useForm } from "effector-forms";
 import { FormEvent, useEffect } from "react";
 import { loginForm } from "../model/login-form-state.ts";
-import { setAuthStatus } from "@/entities/auth-status/lib/auth-status-events.ts";
+
 import { $isAuth } from "@/entities/auth/model/auth.ts";
 import { useStore } from "effector-react";
 import { useNavigate } from "react-router-dom";
@@ -15,18 +15,10 @@ const LoginForm = () => {
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
-    redirect();
   };
-  const redirect = () => {
-    if (fields.email?.firstError || fields.password?.firstError) {
-      setAuthStatus("error");
-    }
-  };
-
   useEffect(() => {
     if (isAuth) {
       navigate(CALENDAR_ROUTE);
-      setAuthStatus("success");
     }
   }, [isAuth]);
 
@@ -47,6 +39,7 @@ const LoginForm = () => {
         value={fields.password.value}
         error={fields.password.firstError?.rule}
         onChange={(e) => fields.password.onChange(e.target.value)}
+        type="password"
       />
       <button
         className="bg-mainColorAccent font-bold text-white rounded-2xl shadow-buttonLogin text-36px"

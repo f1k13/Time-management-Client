@@ -1,9 +1,6 @@
-
 import { Calendar } from "@/widgets/calendar/ui";
 
-
 const CalendarPage = () => {
-  
   return (
     <div>
       <Calendar />

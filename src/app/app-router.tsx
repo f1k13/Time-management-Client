@@ -8,20 +8,17 @@ import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes/routes";
 import { NotFoundPage } from "@/pages/not-found-page";
+import { REGISTER_ROUTE } from "./routes/paths";
 import { Loader } from "@/features/loader/ui";
-import { CALENDAR_ROUTE, REGISTER_ROUTE } from "./routes/paths";
 const AppRouter = () => {
   const isAuth = useStore($isAuth);
   const isLoading = useStore(getSelfFx.pending);
   const navigate = useNavigate();
-  console.log(isLoading);
   useEffect(() => {
     const token = getToken();
     if (!token || !isAuth) {
       setIsAuth(false);
       navigate(REGISTER_ROUTE);
-    } else {
-      navigate(CALENDAR_ROUTE);
     }
 
     setTokenToApi(String(token));
@@ -41,8 +38,16 @@ const AppRouter = () => {
             }
           />
         ))}
-      {publicRoutes.map(({ path, Component }) => (
-        <Route key={path} path={path} element={<Component />} />
+      {publicRoutes.map(({ path, Component, Layout }) => (
+        <Route
+          key={path}
+          path={path}
+          element={
+            <Layout>
+              <Component />
+            </Layout>
+          }
+        />
       ))}
       <Route path="*" element={isLoading ? <Loader /> : <NotFoundPage />} />
     </Routes>
