@@ -20,7 +20,7 @@ const CalendarCell = ({
       onClick={() => navigate(`${CALENDAR_ROUTE}/${item.day}`)}
       className={clsx(
         "border-[1px] w-full p-2 min-h-[110px] min-w-[136px] border-mainBorder cursor-pointer",
-        today === index + 2 &&
+        today === index - 1 &&
           item.currentMonth === month &&
           item.currentYear === year &&
           "border-mainColorAccent",

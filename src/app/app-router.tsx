@@ -16,7 +16,7 @@ const AppRouter = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const token = getToken();
-    if (!token || !isAuth) {
+    if (!token) {
       setIsAuth(false);
       navigate(REGISTER_ROUTE);
     }

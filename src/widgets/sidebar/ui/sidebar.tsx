@@ -1,10 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { sidebarData } from "../lib/sidebar-data.tsx";
 import clsx from "clsx";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-
+  const location = useLocation();
+  sidebarData.map((item) => {
+    if (item.path === location.pathname) {
+      item.active = true;
+    }
+  });
   return (
     <div className="border-r px-5 py-5 bg-mainBG border-mainBorder flex flex-col w-[220px] h-full">
       <h1 className="text-secondaryTextColor text-14px uppercase">
@@ -15,7 +20,8 @@ const Sidebar = () => {
           <li
             onClick={() => navigate(item.path || "")}
             className={clsx(
-              "flex items-center w-[full] h-[27px] py-[20px] pl-[5px] mt-5  rounded-xl hover:bg-mainColorAccent"
+              "flex items-center transition-colors duration-100 w-[full] h-[27px] py-[20px] pl-[5px] mt-5  rounded-xl hover:bg-secondaryActiveColor",
+              item.active && "bg-mainColorAccent"
             )}
             key={item.id}
           >
