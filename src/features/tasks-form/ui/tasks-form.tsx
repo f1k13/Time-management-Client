@@ -4,20 +4,32 @@ import { taskForm } from "../model/tasks-form-state";
 import { addAlert } from "@/entities/alert/lib/alert-events";
 import { FormEvent, useState } from "react";
 import { InputSelect } from "@/shared/ui/input-select";
+import { createTaskFx } from "../lib/task-effect";
+import { useStore } from "effector-react/effector-react.umd";
+import { $user } from "@/entities/user/model/user";
 
-const TasksForm = () => {
+const TasksForm = ({ item }: { item?: string }) => {
   const { fields, submit } = useForm(taskForm);
-  const [select, setSelect] = useState('');
-  console.log(select);
+  const [select, setSelect] = useState("Select type task");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const user = useStore($user);
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
-    console.log(fields.title.firstError);
     if (!fields.title.firstError || !fields.description.firstError) {
       addAlert({
         type: "success",
         text: "Task added",
       });
+      if (user) {
+        createTaskFx({
+          title: fields.title.value,
+          description: fields.description.value,
+          calendarDate: item || "",
+          type: select,
+          userId: user.id,
+        });
+      }
     } else {
       addAlert({
         type: "error",
@@ -45,9 +57,16 @@ const TasksForm = () => {
       <InputSelect
         onChange={(e) => setSelect(e)}
         options={optionsColor}
-        id="color"
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        select={select}
       />
-      <button type="submit">Add</button>
+      <button
+        className=" text-center py-2 transition-colors duration-300 bg-mainColorAccent  rounded-xl text-20px text-white font-bold hover:bg-textSecondary"
+        type="submit"
+      >
+        Add
+      </button>
     </form>
   );
 };

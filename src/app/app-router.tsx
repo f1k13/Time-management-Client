@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes/routes";
 import { NotFoundPage } from "@/pages/not-found-page";
-import { REGISTER_ROUTE } from "./routes/paths";
+import { CALENDAR_ROUTE, REGISTER_ROUTE } from "./routes/paths";
 import { Loader } from "@/features/loader/ui";
 const AppRouter = () => {
   const isAuth = useStore($isAuth);
@@ -16,8 +16,10 @@ const AppRouter = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const token = getToken();
-    if (!token) {
+    if (token) {
       setIsAuth(false);
+      navigate(CALENDAR_ROUTE);
+    } else {
       navigate(REGISTER_ROUTE);
     }
 

@@ -1,6 +1,6 @@
 import { createEffect } from "effector";
 import { api } from "@/shared/api/api.ts";
-import { User } from "@/entities/user/model/user.ts";
+import { User } from "../model/user";
 export const getSelfFx = createEffect<void, User, Error>(async () => {
   try {
     const { data } = await api.get("/users/self");

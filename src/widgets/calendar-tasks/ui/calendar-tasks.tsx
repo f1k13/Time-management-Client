@@ -2,8 +2,7 @@ import { TasksForm } from "@/features/tasks-form/ui";
 import { ArrowRight } from "@/shared/ui/icons";
 import { useNavigate } from "react-router-dom";
 
-
-const CalendarFormTasks = ({ item }: { item?: string }) => {
+const CalendarTasks = ({ item }: { item?: string }) => {
   const navigate = useNavigate();
   return (
     <div className="w-full flex flex-col p-5">
@@ -18,10 +17,10 @@ const CalendarFormTasks = ({ item }: { item?: string }) => {
       </div>
       <div className="mt-10 w-[30%] h-full">
         <h2 className="text-white text-20px font-normal">Create task</h2>
-        <TasksForm />
+        <TasksForm item={item} />
       </div>
     </div>
   );
 };
 
-export default CalendarFormTasks;
+export default CalendarTasks;

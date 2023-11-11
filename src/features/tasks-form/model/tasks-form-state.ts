@@ -2,6 +2,7 @@ import { createForm } from "effector-forms";
 
 import { required } from "@/shared/lib/validators";
 
+
 export const taskForm = createForm({
   fields: {
     title: {
@@ -15,3 +16,4 @@ export const taskForm = createForm({
   },
   validateOn: ["submit"],
 });
+

@@ -1,1 +1,1 @@
-export { getSelfFx } from "./userEffects.ts";
+export { getSelfFx } from "./user-effects.ts";
