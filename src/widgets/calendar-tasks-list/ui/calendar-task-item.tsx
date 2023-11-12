@@ -1,3 +1,6 @@
+import { InputSelect } from "@/shared/ui/input-select";
+import { useState } from "react";
+
 type CalendarTask = {
   id: number;
   title: string;
@@ -10,16 +13,23 @@ type CalendarTask = {
 const CalendarTaskItem = ({
   date,
   item,
-  index,
 }: {
   date?: string;
   item: CalendarTask;
-  index: number;
 }) => {
+  const options = [{ id: "1", selectName: item.description }];
+  const [isOpen, setIsOpen] = useState(false);
+ 
   return (
-    <div>
+    <div className="w-full px-5 mt-2">
       {date === String(item.calendarDate) && (
-        <div key={index}>{item.title}</div>
+        <InputSelect
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          select={item.title}
+          options={options}
+          colorSelect={item.type}
+        />
       )}
     </div>
   );

@@ -16,7 +16,7 @@ const TasksForm = ({ item }: { item?: string }) => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     submit();
-    if (!fields.title.firstError || !fields.description.firstError) {
+    if (fields.title.value || fields.description.value) {
       addAlert({
         type: "success",
         text: "Task added",
@@ -30,6 +30,8 @@ const TasksForm = ({ item }: { item?: string }) => {
           userId: user.id,
         });
       }
+      fields.title.value = "";
+      fields.description.value = "";
     } else {
       addAlert({
         type: "error",
@@ -37,13 +39,14 @@ const TasksForm = ({ item }: { item?: string }) => {
       });
     }
   };
+
   const optionsColor = [
     { id: "red", selectName: "important" },
-    { id: "green", selectName: "It doesn't matter" },
-    { id: "blue", selectName: "Average importance" },
+    { id: "blue", selectName: "whatever" },
+    { id: "green", selectName: "Average" },
   ];
   return (
-    <form className="w-full h-full flex flex-col gap-10" onSubmit={onSubmit}>
+    <form className="w-full flex flex-col mt-5 gap-10" onSubmit={onSubmit}>
       <TextField
         value={fields.title.value}
         onChange={(e) => fields.title.onChange(e.target.value)}
@@ -53,6 +56,7 @@ const TasksForm = ({ item }: { item?: string }) => {
         value={fields.description.value}
         onChange={(e) => fields.description.onChange(e.target.value)}
         placeholder="Description*"
+        rootClassName="py-5"
       />
       <InputSelect
         onChange={(e) => setSelect(e)}
@@ -65,7 +69,7 @@ const TasksForm = ({ item }: { item?: string }) => {
         className=" text-center py-2 transition-colors duration-300 bg-mainColorAccent  rounded-xl text-20px text-white font-bold hover:bg-textSecondary"
         type="submit"
       >
-        Add
+        Add task
       </button>
     </form>
   );

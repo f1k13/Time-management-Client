@@ -1,5 +1,6 @@
+import clsx from "clsx";
 import { ArrowRight } from "../icons";
-
+import styles from "./input-select.module.scss";
 type option = {
   id: string;
   selectName: string;
@@ -11,34 +12,46 @@ const InputSelect = ({
   options,
   onChange,
   select,
+  colorSelect,
 }: {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
-  options: option[];
-  onChange: (value: string) => void;
+  options?: option[];
+  onChange?: (value: string) => void;
   select: string;
+  colorSelect?: string;
 }) => {
+  
   return (
     <div
       onClick={() => setIsOpen(!isOpen)}
-      className="outline-none transition-all bg-inputBG p-5 pl-[10px] rounded-xl text-textSecondary"
+      className={clsx(
+        "outline-none transition-all bg-inputBG p-5 pl-[10px] rounded-xl text-textSecondary",
+        colorSelect && "bg-mainBG"
+      )}
     >
-      <div className="flex w-full cursor-pointer justify-between border-b border-1px border-textSecondary px-2 pb-2">
-        <p>{select}</p>
+      <div className="flex w-full cursor-pointer justify-between border-b border-1px border-textSecondary pl-2 pb-2">
+        <p className={clsx(styles[colorSelect || ""])}>{select}</p>
         <div className="rotate-90">
-          <ArrowRight />
+          <ArrowRight colorSelect={colorSelect} />
         </div>
       </div>
       <ul className="ease-in-out duration-300">
-        {options.map(
+        {options?.map(
           (item) =>
             isOpen && (
               <li
-                className="text-textSecondary transition-colors duration-100 p-2 rounded-xl mt-5 cursor-pointer hover:bg-mainColorAccent hover:text-white"
-                onClick={() => onChange(item.selectName)}
+                className={clsx(
+                  " transition-colors duration-100 p-2 rounded-xl mt-5 cursor-pointer ",
+                  !colorSelect && "hover:bg-mainColorAccent hover:text-white",
+                  colorSelect && styles[colorSelect || ""]
+                )}
+                onClick={() => onChange?.(item.selectName)}
                 key={item.id}
               >
-                {item.selectName}
+                {colorSelect
+                  ? `Description: ${item.selectName}`
+                  : item.selectName}
               </li>
             )
         )}

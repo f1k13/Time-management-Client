@@ -6,7 +6,7 @@ const CalendarDay = () => {
   const { id } = useParams();
   
   return (
-    <div>
+    <div className="flex p-10">
       <CalendarTasks item={id} />
       <CalendarTasksList date={id} />
     </div>

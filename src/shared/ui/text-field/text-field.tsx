@@ -7,12 +7,16 @@ const TextField = ({
   type,
   placeholder,
   labelClassName,
+  className,
+  rootClassName,
   error,
   ...rest
 }: {
   label?: string;
   type?: string;
   error?: string | null;
+  className?: string;
+  rootClassName?: string;
   placeholder?: string;
   labelClassName?: string;
 } & InputHTMLAttributes<HTMLInputElement>) => {
@@ -31,8 +35,11 @@ const TextField = ({
       ? styles.placeholderActive
       : styles.placeholderInActive
   );
+
   return (
-    <div className="flex flex-col gap-2 relative w-full h-full">
+    <div
+      className={clsx("flex flex-col gap-2 relative w-full h-full", className)}
+    >
       <label
         className={clsx(
           labelClassName,
@@ -44,10 +51,7 @@ const TextField = ({
       </label>
       <input
         {...rest}
-        className={clsx(
-          styles.root,
-          "h-[60px]"
-        )}
+        className={clsx(styles.root, "h-[60px]", rootClassName)}
         onFocus={onFocus}
         onBlur={onBlur}
         id={label}

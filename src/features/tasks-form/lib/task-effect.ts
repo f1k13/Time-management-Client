@@ -2,7 +2,7 @@ import { api } from "@/shared/api/api";
 import { AxiosError } from "axios";
 import { createEffect } from "effector";
 
-type CreateTask = {
+export type CreateTask = {
   title: string;
   description: string;
   calendarDate: string;

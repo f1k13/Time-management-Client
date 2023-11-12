@@ -14,6 +14,4 @@ export const $alert = createStore<AlertType[]>([])
   })
   .on(deleteAlert, (state, id) => state.filter((item) => item.id !== id));
 
-
-
 $alert.watch(alertTime);

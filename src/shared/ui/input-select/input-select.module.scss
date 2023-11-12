@@ -1,0 +1,9 @@
+.important {
+  @apply text-errorColor;
+}
+.Average {
+  @apply text-successColor;
+}
+.whatever {
+  @apply text-infoColor;
+}

@@ -1,12 +1,18 @@
-
-
-const ArrowRight = () => {
+const ArrowRight = ({ colorSelect }: { colorSelect?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="30"
       height="30"
-      fill="#fff"
+      fill={
+        colorSelect === "important"
+          ? "#FF5B5B"
+          : colorSelect === "Average"
+          ? "#4ECB71"
+          : colorSelect === "whatever"
+          ? "#85B6FF"
+          : "white"
+      }
       viewBox="0 0 16 16"
     >
       <path
