@@ -9,6 +9,6 @@ type DeleteTaskParams = {
 export const deleteTaskFx = createEffect<DeleteTaskParams, void>(
   async (params: DeleteTaskParams) => {
     const { id, userId } = params;
-    await api.delete(`calendar/closingTask?id=${id}&userId=${userId}`);
+    await api.delete(`calendar/deleteTask?id=${id}&userId=${userId}`);
   },
 );

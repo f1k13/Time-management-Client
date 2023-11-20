@@ -1,6 +1,6 @@
 import { TextField } from "@/shared/ui/text-field";
 import { useForm } from "effector-forms";
-import { FormEvent, useEffect } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { loginForm } from "../model/login-form-state.ts";
 
 import { $isAuth } from "@/entities/auth/model/auth.ts";
@@ -10,6 +10,8 @@ import { CALENDAR_ROUTE } from "@/app/routes/paths.ts";
 
 const LoginForm = () => {
   const { fields, submit } = useForm(loginForm);
+  const [isVisiblePass, setIsVisiblePass] = useState<boolean>(false);
+
   const isAuth = useStore($isAuth);
   const navigate = useNavigate();
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -40,9 +42,12 @@ const LoginForm = () => {
         error={fields.password.firstError?.rule}
         onChange={(e) => fields.password.onChange(e.target.value)}
         type="password"
+        isVisible={isVisiblePass}
+        setIsVisible={setIsVisiblePass}
+        eye={true}
       />
       <button
-        className="bg-mainColorAccent font-bold text-white rounded-2xl shadow-buttonLogin text-36px"
+        className="bg-mainColorAccent transition-colors duration-200 shadow-outlineMain text-white rounded-2xl text-36px font-bold hover:bg-mainColorAccentSecondary hover:shadow-outlineHover"
         type="submit"
       >
         Login

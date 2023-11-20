@@ -2,6 +2,8 @@ import { InputHTMLAttributes, useState } from "react";
 import styles from "./text-field.module.scss";
 import clsx from "clsx";
 import { errorsList } from "@/shared/lib/errors-list.ts";
+import EyeIcon from "@/shared/ui/icons/auth-icons/eye-icon.tsx";
+
 const TextField = ({
   label,
   type,
@@ -10,6 +12,9 @@ const TextField = ({
   className,
   rootClassName,
   error,
+  eye,
+  isVisible,
+  setIsVisible,
   ...rest
 }: {
   label?: string;
@@ -19,6 +24,9 @@ const TextField = ({
   rootClassName?: string;
   placeholder?: string;
   labelClassName?: string;
+  eye?: boolean;
+  isVisible?: boolean;
+  setIsVisible?: (value: boolean) => void;
 } & InputHTMLAttributes<HTMLInputElement>) => {
   const [isFocus, setIsFocus] = useState<boolean>(false);
   const onFocus = () => {
@@ -32,8 +40,8 @@ const TextField = ({
     isFocus
       ? styles.placeholderActive
       : rest.value
-      ? styles.placeholderActive
-      : styles.placeholderInActive
+        ? styles.placeholderActive
+        : styles.placeholderInActive,
   );
 
   return (
@@ -43,7 +51,7 @@ const TextField = ({
       <label
         className={clsx(
           labelClassName,
-          "text-14px font-bold text-mainColorAccent"
+          "text-14px font-bold text-mainColorAccent",
         )}
         htmlFor={label}
       >
@@ -55,13 +63,19 @@ const TextField = ({
         onFocus={onFocus}
         onBlur={onBlur}
         id={label}
-        type={type}
+        type={isVisible ? "text" : type}
       />
       <p className={clsx(placeHolderClassName)}>{placeholder}</p>
+      <div
+        onClick={() => setIsVisible?.(!isVisible)}
+        className="absolute top-[50px] cursor-pointer left-[95%]"
+      >
+        {eye && <EyeIcon />}
+      </div>
       <p
         className={clsx(
           "absolute text-errorColor right-0 font-medium bottom-[-25px] transition opacity-0",
-          error && "opacity-100"
+          error && "opacity-100",
         )}
       >
         {errorsList[error || ""]}
