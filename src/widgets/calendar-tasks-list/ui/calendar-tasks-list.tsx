@@ -14,7 +14,7 @@ const CalendarTasksList = ({ date }: { date?: string }) => {
   const navigate = useNavigate();
   const user = useStore($user);
   useEffect(() => {
-    if (date && user) {
+    if (date) {
       getTasksFx({ date: date, userId: user.id });
     }
   }, []);
@@ -34,7 +34,7 @@ const CalendarTasksList = ({ date }: { date?: string }) => {
       >
         <h1 className="text-white text-32px font-bold mb-1">Your tasks</h1>
         {tasks.map((item, index) => (
-          <CalendarTaskItem item={item} date={date} key={index} />
+          <CalendarTaskItem user={user} item={item} date={date} key={index} />
         ))}
       </div>
     </div>

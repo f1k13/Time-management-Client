@@ -1,0 +1,22 @@
+.root::-webkit-scrollbar {
+  @apply w-[8px];
+}
+
+.root::-webkit-scrollbar-thumb {
+  @apply bg-mainBorder rounded-2xl
+
+}
+
+.root::-webkit-scrollbar-track {
+  @apply bg-activeColor rounded-2xl
+}
+
+.important {
+  @apply text-errorColor;
+}
+.Average {
+  @apply text-successColor;
+}
+.whatever {
+  @apply text-infoColor;
+}

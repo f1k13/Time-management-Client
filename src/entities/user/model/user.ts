@@ -9,7 +9,7 @@ export type User = {
   tasks?: [];
 };
 
-export const $user = createStore<User | null>(null)
+export const $user = createStore<User>({} as User)
   .on(getSelfFx.doneData, (_, user) => user)
 
   .on(getSelfFx.failData, (_, error) => {

@@ -1,22 +1,31 @@
 import { CalendarCell } from "@/features/calendar-cell/ui";
 import { calendarData } from "../lib/calendar-data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import moment from "moment";
 import { CalendarController } from "@/features/calendar-controller/ui";
+import { useStore } from "effector-react";
+import { getTasksCells } from "@/widgets/calendar/lib/get-tasks-cells.ts";
+import { $user } from "@/entities/user/model/user.ts";
+import { $calendarTasksCell } from "@/widgets/calendar/model/calendar-tasks-cells.ts";
 
 const Calendar = () => {
   const today = moment();
   const [currentMonth, setCurrentMonth] = useState(today);
   const month = currentMonth.format("MMMM");
   const year = currentMonth.format("YYYY");
+  const user = useStore($user);
+  const tasksCells = useStore($calendarTasksCell);
+  console.log(tasksCells);
   const nextMonth = () => {
     setCurrentMonth(moment(currentMonth).add(1, "months"));
   };
-  
+
   const prevMonth = () => {
     setCurrentMonth(moment(currentMonth).subtract(1, "months"));
   };
-
+  useEffect(() => {
+    getTasksCells(user.id);
+  }, []);
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return (
     <div className=" w-full p-[5px] h-full flex flex-col">
@@ -41,7 +50,12 @@ const Calendar = () => {
       </div>
       <div className="grid grid-cols-7 ">
         {calendarData(currentMonth).map((item, index) => (
-          <CalendarCell key={index} index={index} item={item} />
+          <CalendarCell
+            tasks={tasksCells}
+            key={index}
+            index={index}
+            item={item}
+          />
         ))}
       </div>
     </div>

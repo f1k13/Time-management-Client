@@ -22,7 +22,7 @@ const TasksForm = ({ item }: { item?: string }) => {
         type: "success",
         text: "Task added",
       });
-      if (user && item) {
+      if (item) {
         createTaskFx({
           title: fields.title.value,
           description: fields.description.value,
@@ -42,9 +42,9 @@ const TasksForm = ({ item }: { item?: string }) => {
   };
 
   const optionsColor = [
-    { id: "red", selectName: "important" },
-    { id: "blue", selectName: "whatever" },
-    { id: "green", selectName: "Average" },
+    { id: 1, selectName: "important" },
+    { id: 2, selectName: "whatever" },
+    { id: 2, selectName: "Average" },
   ];
 
   return (

@@ -1,4 +1,3 @@
-import { setIsAuth } from "@/entities/auth/lib";
 import { $isAuth } from "@/entities/auth/model/auth";
 import { getSelfFx } from "@/entities/user/lib";
 import { setTokenToApi } from "@/shared/api/api.ts";
@@ -16,8 +15,7 @@ const AppRouter = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const token = getToken();
-    if (token) {
-      setIsAuth(true);
+    if (token && isAuth) {
       navigate(CALENDAR_ROUTE);
     } else {
       navigate(REGISTER_ROUTE);

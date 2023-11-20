@@ -16,7 +16,6 @@ export const $calendarTasks = createStore<Task[]>([])
     return [...state, tasks];
   })
   .on(getTasksFx.doneData, (_, tasks: Task[]) => {
-    console.log(tasks);
     return tasks;
   })
   .on(createTaskFx.failData, () => {
