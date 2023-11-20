@@ -1,25 +1,23 @@
-import { $user } from "@/entities/user/model/user";
 import { useStore } from "effector-react/effector-react.umd";
-import CalendarTaskItem from "./calendar-task-item";
 import { ArrowRight } from "@/shared/ui/icons";
 import { useNavigate } from "react-router-dom";
-import { $tasksCalendar } from "../model/get-tasks";
-import { getTasksFx } from "../lib/get-tasks-effect";
+import { CalendarTaskItem } from "@/features/calendar-task-item/ui";
+import { $calendarTasks } from "@/widgets/calendar-tasks-list/model/calendar-tasks.ts";
+import styles from "../styles/tasks-list.module.scss";
+import clsx from "clsx";
 import { useEffect } from "react";
-
+import { getTasksFx } from "@/widgets/calendar-tasks-list/lib/get-tasks-effect.ts";
+import { $user } from "@/entities/user/model/user.ts";
 
 const CalendarTasksList = ({ date }: { date?: string }) => {
-  const user = useStore($user);
-  const tasks = useStore($tasksCalendar);
-
+  const tasks = useStore($calendarTasks);
   const navigate = useNavigate();
-
+  const user = useStore($user);
   useEffect(() => {
     if (date && user) {
-      getTasksFx({ date: date, userId: user?.id });
+      getTasksFx({ date: date, userId: user.id });
     }
   }, []);
-
   return (
     <div className="flex flex-col w-1/2 items-end">
       <button
@@ -28,7 +26,12 @@ const CalendarTasksList = ({ date }: { date?: string }) => {
       >
         Back <ArrowRight />
       </button>
-      <div className=" w-full bg-inputBG flex pt-5 h-[500px] flex-col mt-20 items-center rounded-xl">
+      <div
+        className={clsx(
+          " w-full bg-inputBG flex pt-5 h-[500px] flex-col mt-20 items-center rounded-xl overflow-y-auto",
+          styles.root,
+        )}
+      >
         <h1 className="text-white text-32px font-bold mb-1">Your tasks</h1>
         {tasks.map((item, index) => (
           <CalendarTaskItem item={item} date={date} key={index} />

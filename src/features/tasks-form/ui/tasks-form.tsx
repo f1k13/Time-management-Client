@@ -4,14 +4,15 @@ import { taskForm } from "../model/tasks-form-state";
 import { addAlert } from "@/entities/alert/lib/alert-events";
 import { FormEvent, useState } from "react";
 import { InputSelect } from "@/shared/ui/input-select";
-import { createTaskFx } from "../lib/task-effect";
+import { createTaskFx } from "../lib/send-task-effect.ts";
 import { useStore } from "effector-react/effector-react.umd";
 import { $user } from "@/entities/user/model/user";
 
 const TasksForm = ({ item }: { item?: string }) => {
   const { fields, submit } = useForm(taskForm);
-  const [select, setSelect] = useState("Select type task");
+  const [select, setSelect] = useState<string>("Select type task");
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const user = useStore($user);
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ const TasksForm = ({ item }: { item?: string }) => {
         type: "success",
         text: "Task added",
       });
-      if (user) {
+      if (user && item) {
         createTaskFx({
           title: fields.title.value,
           description: fields.description.value,
@@ -30,8 +31,8 @@ const TasksForm = ({ item }: { item?: string }) => {
           userId: user.id,
         });
       }
-      fields.title.value = "";
-      fields.description.value = "";
+      fields.title.onChange("");
+      fields.description.onChange("");
     } else {
       addAlert({
         type: "error",
@@ -45,6 +46,7 @@ const TasksForm = ({ item }: { item?: string }) => {
     { id: "blue", selectName: "whatever" },
     { id: "green", selectName: "Average" },
   ];
+
   return (
     <form className="w-full flex flex-col mt-5 gap-10" onSubmit={onSubmit}>
       <TextField
