@@ -1,6 +1,7 @@
 import { CALENDAR_ROUTE } from "@/app/routes/paths";
-import { BurgerMenuIcon, NotificationIcon } from "@/shared/ui/icons";
+import { BurgerMenuIcon } from "@/shared/ui/icons";
 import { useNavigate } from "react-router-dom";
+import { Notifications } from "@/features/notifications/ui";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -10,10 +11,10 @@ const Navbar = () => {
         onClick={() => navigate(CALENDAR_ROUTE)}
         className="flex text-20px text-mainColorAccent cursor-pointer"
       >
-        .time <span className="text-secondaryColor">managment</span>
+        .time <span className="text-secondaryColor">management</span>
       </h1>
-      <div className="flex gap-[42px]">
-        <NotificationIcon />
+      <div className="flex w-full justify-end gap-[42px]">
+        <Notifications />
         <BurgerMenuIcon />
       </div>
     </div>

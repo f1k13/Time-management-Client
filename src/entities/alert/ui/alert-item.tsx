@@ -6,11 +6,6 @@ import { DeleteIcon } from "../../../shared/ui/icons";
 import { deleteAlert } from "@/entities/alert/lib/alert-events.ts";
 import { motion } from "framer-motion";
 const AlertItem = ({ item }: { item: AlertType }) => {
-  const alertRemove = () => {
-    const id = item.id;
-    deleteAlert(id);
-  };
-
   return (
     <motion.li
       className={clsx(
@@ -25,7 +20,7 @@ const AlertItem = ({ item }: { item: AlertType }) => {
         <div>{AlertDataIcon[item.type]}</div>
         <p className="ml-2">{item.text}</p>
       </div>
-      <button onClick={() => alertRemove()}>
+      <button onClick={() => deleteAlert(item.id)}>
         <DeleteIcon />
       </button>
     </motion.li>

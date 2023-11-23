@@ -22,7 +22,7 @@ const TasksForm = ({ item }: { item?: string }) => {
         type: "success",
         text: "Task added",
       });
-      if (item) {
+      if (item && user) {
         createTaskFx({
           title: fields.title.value,
           description: fields.description.value,

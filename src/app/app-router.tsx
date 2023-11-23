@@ -15,7 +15,7 @@ const AppRouter = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const token = getToken();
-    if (token && isAuth) {
+    if (token) {
       navigate(CALENDAR_ROUTE);
     } else {
       navigate(REGISTER_ROUTE);

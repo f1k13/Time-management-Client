@@ -15,7 +15,6 @@ const Calendar = () => {
   const year = currentMonth.format("YYYY");
   const user = useStore($user);
   const tasksCells = useStore($calendarTasksCell);
-  console.log(tasksCells);
   const nextMonth = () => {
     setCurrentMonth(moment(currentMonth).add(1, "months"));
   };
@@ -23,6 +22,7 @@ const Calendar = () => {
   const prevMonth = () => {
     setCurrentMonth(moment(currentMonth).subtract(1, "months"));
   };
+
   useEffect(() => {
     getTasksCells(user.id);
   }, []);

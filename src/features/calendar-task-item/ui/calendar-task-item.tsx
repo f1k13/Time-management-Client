@@ -29,7 +29,7 @@ const CalendarTaskItem = ({
   const deleteTask = (id: number) => {
     setActive(!active);
     deleteTaskFx({ id, userId: user.id });
-    addAlert({ type: "warning", text: "Task deleted" });
+    addAlert({ type: "success", text: "Task closed" });
   };
   return (
     <div className="w-full px-5 mt-2">

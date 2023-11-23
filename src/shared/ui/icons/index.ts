@@ -15,3 +15,4 @@ export { default as ArrowLeft } from "./calendar-icon/arrow-left";
 export { default as ArrowRight } from "./calendar-icon/arrow-right";
 export { default as CheckIcon } from "./calendar-icon/check-icon";
 export { default as eyeIcon } from "./auth-icons/eye-icon.tsx";
+export { default as RemoveIcon } from "./notification-icons/remove-icon.tsx";

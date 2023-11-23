@@ -14,7 +14,7 @@ const CalendarTasksList = ({ date }: { date?: string }) => {
   const navigate = useNavigate();
   const user = useStore($user);
   useEffect(() => {
-    if (date) {
+    if (date && user) {
       getTasksFx({ date: date, userId: user.id });
     }
   }, []);

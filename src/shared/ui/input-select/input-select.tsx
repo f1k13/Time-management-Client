@@ -48,6 +48,7 @@ const InputSelect = ({
                 className={clsx(
                   checkBox && "flex w-full justify-between items-center",
                 )}
+                key={item.selectName}
               >
                 <li
                   className={clsx(
@@ -56,7 +57,6 @@ const InputSelect = ({
                     colorSelect && styles[colorSelect || ""],
                   )}
                   onClick={() => onChange?.(item.selectName)}
-                  key={item.id}
                 >
                   {colorSelect
                     ? `Description: ${item.selectName}`
@@ -65,6 +65,7 @@ const InputSelect = ({
                 {checkBox && (
                   <div
                     onClick={() => onChange?.(String(item.id))}
+                    key={item.selectName}
                     className="w-[30px] h-[30px] bg-mainBG border-2 border-mainColorAccent mt-5  flex justify-center items-center cursor-pointer"
                   >
                     {active && <CheckIcon />}
