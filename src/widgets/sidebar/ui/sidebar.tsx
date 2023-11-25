@@ -8,6 +8,8 @@ const Sidebar = () => {
   sidebarData.map((item) => {
     if (item.path === location.pathname) {
       item.active = true;
+    } else {
+      item.active = false;
     }
   });
   return (
@@ -21,7 +23,7 @@ const Sidebar = () => {
             onClick={() => navigate(item.path || "")}
             className={clsx(
               "flex items-center transition-colors duration-100 w-[full] h-[27px] py-[20px] pl-[5px] mt-5  rounded-xl hover:bg-secondaryActiveColor",
-              item.active && "bg-mainColorAccent"
+              item.active && "bg-mainColorAccent",
             )}
             key={item.id}
           >

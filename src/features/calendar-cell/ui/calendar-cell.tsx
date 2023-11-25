@@ -52,8 +52,8 @@ const CalendarCell = ({
       String(calendarDay[index]) === moment().format("YYYY-MM-DD")
     ) {
       addNotifications({
-        text: "Task deadline",
-        title: "Closed task",
+        text: "close the task",
+        title: "open task",
         entity: "task",
         first: true,
       });
