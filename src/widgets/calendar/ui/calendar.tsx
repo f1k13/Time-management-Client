@@ -23,10 +23,11 @@ const Calendar = () => {
     setCurrentMonth(moment(currentMonth).subtract(1, "months"));
   };
 
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
   useEffect(() => {
     getTasksCells(user.id);
   }, []);
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return (
     <div className=" w-full p-[5px] h-full flex flex-col">
       <div className="flex items-center w-full justify-between">

@@ -9,6 +9,7 @@ import { authRoutes, publicRoutes } from "./routes/routes";
 import { CALENDAR_ROUTE, REGISTER_ROUTE } from "./routes/paths";
 import { Loader } from "@/features/loader/ui";
 import { NotFoundPage } from "@/pages/not-found-page";
+
 const AppRouter = () => {
   const isAuth = useStore($isAuth);
   const isLoading = useStore(getSelfFx.pending);

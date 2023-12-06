@@ -44,7 +44,7 @@ const TasksForm = ({ item }: { item?: string }) => {
   const optionsColor = [
     { id: 1, selectName: "important" },
     { id: 2, selectName: "whatever" },
-    { id: 2, selectName: "Average" },
+    { id: 3, selectName: "Average" },
   ];
 
   return (

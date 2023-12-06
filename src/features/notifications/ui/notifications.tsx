@@ -7,7 +7,6 @@ import { NotificationItem } from "@/entities/notification-item/ui";
 const Notifications = () => {
   const notifications = useStore($notifications);
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  console.log(notifications);
   return (
     <div
       className="cursor-pointer relative"
@@ -24,12 +23,9 @@ const Notifications = () => {
           onClick={(e) => e.stopPropagation()}
           className="absolute left-[-150px] mt-2 rounded-2xl bg-activeColor min-h-[200px] w-[200px] px-5 py-2"
         >
-          {notifications.map(
-            (item) =>
-              item.id === item.id && (
-                <NotificationItem item={item} key={item.id} />
-              ),
-          )}
+          {notifications.map((item) => (
+            <NotificationItem key={item.id} item={item} />
+          ))}
         </ul>
       )}
     </div>

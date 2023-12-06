@@ -3,18 +3,43 @@ import { useEffect, useState } from "react";
 import { searchPeoplesFx } from "@/widgets/friends-search/lib/search-peoples-fx.ts";
 import { useStore } from "effector-react";
 import { $peoples } from "@/widgets/friends-search/model/peoples.ts";
-import { UserItem } from "@/features/people-item/ui";
+import { UserItem } from "@/features/user-item/ui";
+import { $user, $users } from "@/entities/user/model/user.ts";
+import { sendRequestToFriendFx } from "@/widgets/friends-search/lib/friend-effect.ts";
+import { RequestFriendItem } from "@/features/request-friend-item/ui";
+import styles from "../styles/friends-search.module.scss";
+import clsx from "clsx";
+import { getAllUsers } from "@/entities/user/lib/user-effects.ts";
 
 const FriendsSearch = () => {
   const [value, setValue] = useState<string>("");
-  const users = useStore($peoples);
+  const peoples = useStore($peoples);
+  const user = useStore($user);
+  const users = useStore($users);
+
+  const sendFriend = (id: number) => {
+    sendRequestToFriendFx({
+      userId: user.id,
+      friendId: id,
+    });
+  };
+  useEffect(() => {
+    getAllUsers();
+  }, []);
+
   useEffect(() => {
     value && searchPeoplesFx(value);
+    if (!value) users.length = 0;
   }, [value]);
+
+  const filterUserRequest = user.unacceptedRequests?.map((item) => {
+    const find = users.find((user) => user.id === item);
+    return find;
+  });
   return (
-    <div className="p-[5px] w-full h-full">
+    <div className="p-[5px] w-full h-full ">
       <h2 className="text-white text-32px ml-2 font-medium">Friends</h2>
-      <div className="w-[40%] pt-[50px] h-full pl-[20px]">
+      <div className="w-full pt-[50px] h-full px-[20px]">
         <TextField
           value={value}
           onChange={(e) => setValue(e.target.value)}
@@ -22,11 +47,39 @@ const FriendsSearch = () => {
           placeholder="Enter username"
           rootClassName={"h-[60px]"}
         />
-        <div className="bg-inputBG flex items-center pt-[10px] px-5 flex-col w-full rounded-2xl h-[350px] mt-[50px]">
-          <h2 className="text-white text-32px font-bold">Peoples</h2>
-          {users.map((item) => (
-            <UserItem item={item} key={item.id} />
+        <div
+          className={clsx(
+            "bg-inputBG overflow-y-auto flex items-center pt-[10px] px-5 flex-col w-full rounded-2xl h-[350px] mt-[50px]",
+            styles.root,
+          )}
+        >
+          <h2 className="text-white text-32px font-bold">{value && "Users"}</h2>
+          {peoples.map((item) => (
+            <UserItem
+              sendFriend={sendFriend}
+              user={user}
+              item={item}
+              key={item.id}
+            />
           ))}
+          {!value && (
+            <div className="flex flex-col items-center">
+              <h2 className="text-mainColorAccent text-36px font-bold">
+                Friend requests
+              </h2>
+              {filterUserRequest &&
+                filterUserRequest?.map(
+                  (item) =>
+                    item && (
+                      <RequestFriendItem
+                        user={user}
+                        item={item}
+                        key={item?.id}
+                      />
+                    ),
+                )}
+            </div>
+          )}
         </div>
       </div>
     </div>

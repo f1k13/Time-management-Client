@@ -1,7 +1,7 @@
 import { CALENDAR_ROUTE } from "@/app/routes/paths";
-import { BurgerMenuIcon } from "@/shared/ui/icons";
 import { useNavigate } from "react-router-dom";
 import { Notifications } from "@/features/notifications/ui";
+import { BurgerMenu } from "@/widgets/burger-menu/ui";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Navbar = () => {
       </h1>
       <div className="flex w-full justify-end gap-[42px]">
         <Notifications />
-        <BurgerMenuIcon />
+        <BurgerMenu />
       </div>
     </div>
   );

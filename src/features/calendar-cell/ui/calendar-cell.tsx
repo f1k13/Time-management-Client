@@ -24,10 +24,11 @@ const CalendarCell = ({
   const month = moment().format("MMMM");
   const year = moment().format("YYYY");
   const navigate = useNavigate();
+
   const cellClassName = clsx(
     "border-[1px] w-full p-2 h-[110px] min-w-[136px] border-mainBorder cursor-pointer overflow-y-auto",
     styles.root,
-    today === index - 1 &&
+    today === index + 2 &&
       item.currentMonth === month &&
       item.currentYear === year &&
       "border-mainColorAccent",
@@ -37,14 +38,13 @@ const CalendarCell = ({
 
   const dayClassName = clsx(
     "text-textSecondary text-end",
-    today === index + 1 &&
+    today === index + 3 &&
       item.currentMonth === month &&
       "text-mainColorAccent",
   );
   const notification = useStore($notifications);
 
   const calendarDay = tasks.map((item) => item.calendarDate);
-  console.log(notification);
   useEffect(() => {
     if (
       tasks &&
