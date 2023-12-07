@@ -18,6 +18,7 @@ const CalendarTasksList = ({ date }: { date?: string }) => {
       getTasksFx({ date: date, userId: user.id });
     }
   }, []);
+  console.log(tasks);
   return (
     <div className="flex flex-col w-1/2 items-end">
       <button

@@ -17,7 +17,7 @@ const Sidebar = () => {
       <h1 className="text-secondaryTextColor text-14px uppercase">
         Your workspace
       </h1>
-      <ul className="flex cursor-pointer w-full flex-col mt-[24px] justify-between">
+      <ul className="flex cursor-pointer w-full flex-col justify-between">
         {sidebarData.map((item) => (
           <li
             onClick={() => navigate(item.path || "")}

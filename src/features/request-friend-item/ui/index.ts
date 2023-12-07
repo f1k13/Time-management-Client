@@ -1,1 +1,1 @@
-export { default as RequestFriendItem } from "./request-friend-item";
+export { default as FriendItem } from "./friend-item";

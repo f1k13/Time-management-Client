@@ -28,7 +28,7 @@ const CalendarCell = ({
   const cellClassName = clsx(
     "border-[1px] w-full p-2 h-[110px] min-w-[136px] border-mainBorder cursor-pointer overflow-y-auto",
     styles.root,
-    today === index + 2 &&
+    item.day === moment().format("YYYY-MM-DD") &&
       item.currentMonth === month &&
       item.currentYear === year &&
       "border-mainColorAccent",
@@ -59,6 +59,7 @@ const CalendarCell = ({
       });
     }
   }, [tasks.length]);
+
   return (
     <div
       onClick={() => navigate(`${CALENDAR_ROUTE}/${item.day}`)}

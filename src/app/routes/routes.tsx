@@ -3,6 +3,7 @@ import { AuthLayout, MainLayout } from "../layouts";
 import {
   CALENDAR_ROUTE,
   FRIENDS_ROUTE,
+  HOME_ROUTE,
   LOGIN_ROUTE,
   REGISTER_ROUTE,
 } from "./paths";
@@ -11,6 +12,7 @@ import { LoginPage } from "@/pages/login-page";
 import { RegisterPage } from "@/pages/register-page";
 import { CalendarPage } from "@/pages/calendar-page";
 import { FriendsPage } from "@/pages/friends-page";
+import { HomePage } from "@/pages/home-page";
 
 type RouteType = {
   path: string;
@@ -32,6 +34,11 @@ export const publicRoutes: RouteType[] = [
 ];
 
 export const authRoutes: RouteType[] = [
+  {
+    path: HOME_ROUTE,
+    Component: HomePage,
+    Layout: MainLayout,
+  },
   {
     path: CALENDAR_ROUTE,
     Component: CalendarPage,

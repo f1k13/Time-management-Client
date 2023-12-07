@@ -6,7 +6,7 @@ import { useStore } from "effector-react";
 import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes/routes";
-import { CALENDAR_ROUTE, REGISTER_ROUTE } from "./routes/paths";
+import { HOME_ROUTE, REGISTER_ROUTE } from "./routes/paths";
 import { Loader } from "@/features/loader/ui";
 import { NotFoundPage } from "@/pages/not-found-page";
 
@@ -17,7 +17,7 @@ const AppRouter = () => {
   useEffect(() => {
     const token = getToken();
     if (token) {
-      navigate(CALENDAR_ROUTE);
+      navigate(HOME_ROUTE);
     } else {
       navigate(REGISTER_ROUTE);
     }

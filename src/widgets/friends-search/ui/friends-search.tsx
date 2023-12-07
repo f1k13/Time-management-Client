@@ -6,7 +6,7 @@ import { $peoples } from "@/widgets/friends-search/model/peoples.ts";
 import { UserItem } from "@/features/user-item/ui";
 import { $user, $users } from "@/entities/user/model/user.ts";
 import { sendRequestToFriendFx } from "@/widgets/friends-search/lib/friend-effect.ts";
-import { RequestFriendItem } from "@/features/request-friend-item/ui";
+import { FriendItem } from "@/features/request-friend-item/ui";
 import styles from "../styles/friends-search.module.scss";
 import clsx from "clsx";
 import { getAllUsers } from "@/entities/user/lib/user-effects.ts";
@@ -23,19 +23,29 @@ const FriendsSearch = () => {
       friendId: id,
     });
   };
+
+  const filterUserRequest = user.unacceptedRequests?.map((item) => {
+    const find = users.find((user) => user.id === item);
+    return find;
+  });
+
+  const filterUserFriends = user.friends?.map((item) => {
+    const find = users.find((user) => user.id === item);
+    return find;
+  });
+
+  if (!value) {
+    peoples.length = 0;
+  }
+
   useEffect(() => {
     getAllUsers();
   }, []);
 
   useEffect(() => {
     value && searchPeoplesFx(value);
-    if (!value) users.length = 0;
   }, [value]);
 
-  const filterUserRequest = user.unacceptedRequests?.map((item) => {
-    const find = users.find((user) => user.id === item);
-    return find;
-  });
   return (
     <div className="p-[5px] w-full h-full ">
       <h2 className="text-white text-32px ml-2 font-medium">Friends</h2>
@@ -63,21 +73,47 @@ const FriendsSearch = () => {
             />
           ))}
           {!value && (
-            <div className="flex flex-col items-center">
-              <h2 className="text-mainColorAccent text-36px font-bold">
-                Friend requests
-              </h2>
-              {filterUserRequest &&
-                filterUserRequest?.map(
-                  (item) =>
-                    item && (
-                      <RequestFriendItem
-                        user={user}
-                        item={item}
-                        key={item?.id}
-                      />
-                    ),
-                )}
+            <div className="flex justify-between w-full">
+              <div className="flex flex-col w-1/2 items-center">
+                <h2 className="text-mainColorAccent text-36px font-bold">
+                  Friend requests
+                </h2>
+                {filterUserRequest &&
+                  filterUserRequest?.map(
+                    (item) =>
+                      item && (
+                        <FriendItem
+                          friend={false}
+                          user={user}
+                          item={item}
+                          key={item?.id}
+                        />
+                      ),
+                  )}
+                <p className="text-white text-24px font-normal">
+                  {!filterUserRequest?.length && "No friend requests"}
+                </p>
+              </div>
+              <div className="flex flex-col w-1/2 items-center">
+                <h2 className="text-mainColorAccent text-36px font-bold">
+                  Your friends
+                </h2>
+                {filterUserFriends &&
+                  filterUserFriends?.map(
+                    (item) =>
+                      item && (
+                        <FriendItem
+                          friend={true}
+                          user={user}
+                          item={item}
+                          key={item?.id}
+                        />
+                      ),
+                  )}
+                <p className="text-white text-24px font-normal">
+                  {!filterUserFriends?.length && "No friends"}
+                </p>
+              </div>
             </div>
           )}
         </div>

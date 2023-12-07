@@ -1,4 +1,4 @@
-import { CALENDAR_ROUTE } from "@/app/routes/paths";
+import { HOME_ROUTE } from "@/app/routes/paths";
 import { useNavigate } from "react-router-dom";
 import { Notifications } from "@/features/notifications/ui";
 import { BurgerMenu } from "@/widgets/burger-menu/ui";
@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className="bg-mainBG w-full h-full flex justify-between items-center p-[20px] border-b border-mainBorder">
       <h1
-        onClick={() => navigate(CALENDAR_ROUTE)}
+        onClick={() => navigate(HOME_ROUTE)}
         className="flex text-20px text-mainColorAccent cursor-pointer"
       >
         .time <span className="text-secondaryColor">management</span>
