@@ -6,10 +6,10 @@ import { $peoples } from "@/widgets/friends-search/model/peoples.ts";
 import { UserItem } from "@/features/user-item/ui";
 import { $user, $users } from "@/entities/user/model/user.ts";
 import { sendRequestToFriendFx } from "@/widgets/friends-search/lib/friend-effect.ts";
-import { FriendItem } from "@/features/request-friend-item/ui";
 import styles from "../styles/friends-search.module.scss";
 import clsx from "clsx";
 import { getAllUsers } from "@/entities/user/lib/user-effects.ts";
+import { FriendsList } from "@/features/friends-list/ui";
 
 const FriendsSearch = () => {
   const [value, setValue] = useState<string>("");
@@ -37,7 +37,7 @@ const FriendsSearch = () => {
   if (!value) {
     peoples.length = 0;
   }
-
+  console.log(filterUserFriends);
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -73,48 +73,11 @@ const FriendsSearch = () => {
             />
           ))}
           {!value && (
-            <div className="flex justify-between w-full">
-              <div className="flex flex-col w-1/2 items-center">
-                <h2 className="text-mainColorAccent text-36px font-bold">
-                  Friend requests
-                </h2>
-                {filterUserRequest &&
-                  filterUserRequest?.map(
-                    (item) =>
-                      item && (
-                        <FriendItem
-                          friend={false}
-                          user={user}
-                          item={item}
-                          key={item?.id}
-                        />
-                      ),
-                  )}
-                <p className="text-white text-24px font-normal">
-                  {!filterUserRequest?.length && "No friend requests"}
-                </p>
-              </div>
-              <div className="flex flex-col w-1/2 items-center">
-                <h2 className="text-mainColorAccent text-36px font-bold">
-                  Your friends
-                </h2>
-                {filterUserFriends &&
-                  filterUserFriends?.map(
-                    (item) =>
-                      item && (
-                        <FriendItem
-                          friend={true}
-                          user={user}
-                          item={item}
-                          key={item?.id}
-                        />
-                      ),
-                  )}
-                <p className="text-white text-24px font-normal">
-                  {!filterUserFriends?.length && "No friends"}
-                </p>
-              </div>
-            </div>
+            <FriendsList
+              filterUserRequest={filterUserRequest}
+              filterUserFriends={filterUserFriends}
+              user={user}
+            />
           )}
         </div>
       </div>
