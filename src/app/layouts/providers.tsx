@@ -3,8 +3,6 @@ import { ReactNode } from "react";
 import { AlertDisplay } from "../../entities/alert/ui";
 
 const Providers = ({ children }: { children: ReactNode }) => {
-  
-  
   return (
     <BrowserRouter>
       <AlertDisplay />

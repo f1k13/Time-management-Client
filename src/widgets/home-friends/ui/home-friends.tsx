@@ -12,24 +12,26 @@ const HomeFriends = () => {
     const find = users.find((user) => user.id === item);
     return find;
   });
+  console.log(filterUserFriends);
   useEffect(() => {
     getAllUsers();
   }, []);
   return (
     <div className="w-full h-full">
-      <div className="border flex flex-col items-center border-mainBorder h-[700px] w-[70%] rounded-2xl p-5">
+      <div className="shadow-outlineBlock flex flex-col items-center h-[700px] w-[70%] rounded-2xl p-5">
         <h2 className="text-white text-36px font-bold text-center">
           Your friends
         </h2>
-        {!filterUserFriends && (
+
+        {filterUserFriends?.length !== 0 ? (
+          filterUserFriends?.map(
+            (item) => item && <HomeFriendItem key={item.id} item={item} />,
+          )
+        ) : (
           <p className="text-mainColorAccent text-20px font-normal">
             you haven't added any friends yet.
           </p>
         )}
-        {filterUserFriends &&
-          filterUserFriends?.map(
-            (item) => item && <HomeFriendItem key={item.id} item={item} />,
-          )}
       </div>
     </div>
   );

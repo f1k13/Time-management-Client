@@ -39,6 +39,7 @@ module.exports = {
       outlineSecondary: "0px 8px 0px 0px #49B09D;",
       outlineMain: "0px 8px 0px 0px #0C58B0;",
       outlineHover: "0px 8px 0px 0px #0E7DFF;",
+      outlineBlock: "4px 4px 10px 12px rgba(15, 17, 21, 0.13);",
     },
   },
   plugins: [],

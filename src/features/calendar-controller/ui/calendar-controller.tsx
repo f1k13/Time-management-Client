@@ -1,5 +1,7 @@
 import { ArrowLeft, ArrowRight } from "@/shared/ui/icons";
 import moment from "moment";
+import { useStore } from "effector-react";
+import { $user } from "@/entities/user/model/user.ts";
 
 const CalendarController = ({
   month,
@@ -13,6 +15,8 @@ const CalendarController = ({
   prevMonth: () => void;
 }) => {
   const today = moment().format("DD.MM.YYYY");
+  const user = useStore($user);
+  console.log(user);
   return (
     <div className="flex w-full items-center justify-end">
       <p className="text-mainColorAccent text-20px font-bold"> Today {today}</p>

@@ -17,7 +17,7 @@ const HomeTask = () => {
     getTasksFx({ date: today, userId: user.id });
   }, []);
   return (
-    <div className="border w-1/2 h-[200px] p-5 flex  flex-col rounded-2xl border-mainBorder">
+    <div className=" w-1/2 h-[200px] p-5 flex  flex-col rounded-2xl shadow-outlineBlock">
       <h2 className="text-white text-32px font-bold text-center">
         Tasks for today
       </h2>

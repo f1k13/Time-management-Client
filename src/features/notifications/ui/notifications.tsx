@@ -23,9 +23,15 @@ const Notifications = () => {
           onClick={(e) => e.stopPropagation()}
           className="absolute left-[-150px] mt-2 rounded-2xl bg-activeColor min-h-[200px] w-[200px] px-5 py-2"
         >
-          {notifications.map((item) => (
-            <NotificationItem key={item.id} item={item} />
-          ))}
+          {notifications.length !== 0 ? (
+            notifications.map((item) => (
+              <NotificationItem key={item.id} item={item} />
+            ))
+          ) : (
+            <p className="text-mainColorAccent text-24px  font-bold">
+              No have notifications
+            </p>
+          )}
         </ul>
       )}
     </div>
