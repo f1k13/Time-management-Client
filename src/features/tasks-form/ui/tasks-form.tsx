@@ -36,7 +36,7 @@ const TasksForm = ({ item }: { item?: string }) => {
     } else {
       addAlert({
         type: "error",
-        text: "This fields is requeired",
+        text: "This fields is requerid",
       });
     }
   };

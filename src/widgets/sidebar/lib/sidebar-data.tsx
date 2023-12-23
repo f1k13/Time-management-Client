@@ -1,4 +1,4 @@
-import { CALENDAR_ROUTE, FRIENDS_ROUTE } from "@/app/routes/paths";
+import { CALENDAR_ROUTE, FRIENDS_ROUTE, PLAN_ROUTE } from "@/app/routes/paths";
 import {
   CalendarIcon,
   FriendIcon,
@@ -33,6 +33,11 @@ export const sidebarData: SideBar[] = [
     active: false,
     path: FRIENDS_ROUTE,
   },
-  { id: 5, title: "Notes", icon: <NotesIcon />, active: false },
-  { id: 6, title: "Plan", icon: <PlanIcon />, active: false },
+  {
+    id: 5,
+    title: "Notes",
+    icon: <NotesIcon />,
+    active: false,
+  },
+  { id: 6, title: "Plan", icon: <PlanIcon />, active: false, path: PLAN_ROUTE },
 ];

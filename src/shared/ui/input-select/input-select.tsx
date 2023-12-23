@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { ArrowRight, CheckIcon } from "../icons";
-import styles from "./styles/input-select.module.scss";
+import styles from "./input-select.module.scss";
 
 type option = {
   id: number;

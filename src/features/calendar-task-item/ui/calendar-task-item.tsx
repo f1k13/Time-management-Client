@@ -25,7 +25,6 @@ const CalendarTaskItem = ({
   const options = [{ id: item.id, selectName: item.description }];
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [active, setActive] = useState<boolean>(false);
-
   const deleteTask = (id: number) => {
     setActive(!active);
     deleteTaskFx({ id, userId: user.id });

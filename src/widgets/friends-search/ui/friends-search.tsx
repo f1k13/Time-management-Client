@@ -36,7 +36,6 @@ const FriendsSearch = () => {
   if (!value) {
     peoples.length = 0;
   }
-  console.log(filterUserRequest);
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -44,7 +43,6 @@ const FriendsSearch = () => {
   useEffect(() => {
     value && searchPeoplesFx(value);
   }, [value]);
-  console.log(user);
   return (
     <div className="p-[5px] w-full h-full ">
       <h2 className="text-white text-32px ml-2 font-medium">Friends</h2>

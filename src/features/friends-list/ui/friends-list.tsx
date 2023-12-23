@@ -26,11 +26,11 @@ const FriendsList = ({
                   item={item}
                   key={item?.id}
                 />
-              ),
+              )
           )}
-        <p className="text-white text-24px font-normal">
-          {!filterUserRequest?.length && "No friend requests"}
-        </p>
+        {!filterUserRequest && (
+          <p className="text-white text-24px font-normal">No have requests</p>
+        )}
       </div>
       <div className="flex flex-col w-1/2 items-center">
         <h2 className="text-mainColorAccent text-36px font-bold">
@@ -46,7 +46,7 @@ const FriendsList = ({
                   item={item}
                   key={item?.id}
                 />
-              ),
+              )
           )}
         <p className="text-white text-24px font-normal">
           {!filterUserFriends?.length && "No friends"}
