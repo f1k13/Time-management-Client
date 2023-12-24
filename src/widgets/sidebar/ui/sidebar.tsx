@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { sidebarData } from "../lib/sidebar-data.tsx";
 import clsx from "clsx";
-
 const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,7 +12,7 @@ const Sidebar = () => {
     }
   });
   return (
-    <div className="border-r px-5 py-5 bg-mainBG border-mainBorder flex flex-col w-[220px] h-full">
+    <div className="p-5 bg-mainBG border-r border-mainBorder h-full w-[220px] flex flex-col ">
       <h1 className="text-secondaryTextColor text-14px uppercase">
         Your workspace
       </h1>
@@ -23,7 +22,7 @@ const Sidebar = () => {
             onClick={() => navigate(item.path || "")}
             className={clsx(
               "flex items-center transition-colors duration-100 w-[full] h-[27px] py-[20px] pl-[5px] mt-5  rounded-xl hover:bg-secondaryActiveColor",
-              item.active && "bg-mainColorAccent",
+              item.active && "bg-mainColorAccent"
             )}
             key={item.id}
           >

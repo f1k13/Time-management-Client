@@ -28,6 +28,7 @@ const Calendar = () => {
   useEffect(() => {
     getTasksCells(user.id);
   }, []);
+  console.log(tasksCells);
   return (
     <div className=" w-full p-[5px] h-full flex flex-col">
       <div className="flex items-center w-full justify-between">

@@ -1,4 +1,4 @@
-.root{
+.root {
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.4);
@@ -9,17 +9,17 @@
   justify-content: center;
   align-items: center;
 }
-.content{
-  background-color: #3f454d;
+.content {
+  background-color: #1d2129;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 500px;
-  height: 200px;
+  height: 300px;
   border-radius: 20px;
 }
-.button{
+.button {
   position: absolute;
-  top: 380px;
-  left: 1180px;
+  top: 37%;
+  left: 61%;
 }

@@ -17,5 +17,5 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
     </div>
   );
 };
-  
+
 export default MainLayout;

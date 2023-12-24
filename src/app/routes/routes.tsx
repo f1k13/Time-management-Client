@@ -5,6 +5,7 @@ import {
   FRIENDS_ROUTE,
   HOME_ROUTE,
   LOGIN_ROUTE,
+  NOTES_ROUTE,
   PLAN_ROUTE,
   REGISTER_ROUTE,
 } from "./paths";
@@ -15,6 +16,7 @@ import { CalendarPage } from "@/pages/calendar-page";
 import { FriendsPage } from "@/pages/friends-page";
 import { HomePage } from "@/pages/home-page";
 import { PlanPage } from "@/pages/plan-page";
+import { NotesPage } from "@/pages/notes-page";
 
 type RouteType = {
   path: string;
@@ -59,6 +61,11 @@ export const authRoutes: RouteType[] = [
   {
     path: PLAN_ROUTE,
     Component: PlanPage,
+    Layout: MainLayout,
+  },
+  {
+    path: NOTES_ROUTE,
+    Component: NotesPage,
     Layout: MainLayout,
   },
 ];

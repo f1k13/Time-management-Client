@@ -1,0 +1,11 @@
+.root::-webkit-scrollbar {
+  @apply w-[8px];
+}
+
+.root::-webkit-scrollbar-thumb {
+  @apply bg-mainBorder rounded-2xl;
+}
+
+.root::-webkit-scrollbar-track {
+  @apply bg-activeColor rounded-2xl;
+}
