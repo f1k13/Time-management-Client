@@ -33,9 +33,11 @@ const FriendsSearch = () => {
     const find = users.find((user) => user.id === item);
     return find;
   });
+
   if (!value) {
     peoples.length = 0;
   }
+
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -43,6 +45,7 @@ const FriendsSearch = () => {
   useEffect(() => {
     value && searchPeoplesFx(value);
   }, [value]);
+
   return (
     <div className="p-[5px] w-full h-full ">
       <h2 className="text-white text-32px ml-2 font-medium">Friends</h2>
@@ -57,7 +60,7 @@ const FriendsSearch = () => {
         <div
           className={clsx(
             "bg-inputBG overflow-y-auto flex items-center pt-[10px] px-5 flex-col w-full rounded-2xl h-[350px] mt-[50px]",
-            styles.root,
+            styles.root
           )}
         >
           {value && <h2 className="text-white text-32px font-bold">Users</h2>}

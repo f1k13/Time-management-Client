@@ -6,8 +6,8 @@ const FriendsList = ({
   filterUserFriends,
   user,
 }: {
-  filterUserRequest: (User | undefined)[] | undefined;
-  filterUserFriends: (User | undefined)[] | undefined;
+  filterUserRequest?: (User | undefined)[];
+  filterUserFriends?: (User | undefined)[];
   user: User;
 }) => {
   return (

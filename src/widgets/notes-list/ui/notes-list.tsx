@@ -15,7 +15,7 @@ const NotesList = () => {
   return (
     <div
       className={clsx(
-        "w-full px-[28px] flex flex-col justify-center items-center overflow-y-auto h-[400px] gap-4 pt-[80px] pb-[20px]",
+        "w-full px-[28px] flex flex-col overflow-y-auto h-[400px] gap-4 pt-[80px] pb-[20px]",
         styles.root
       )}
     >

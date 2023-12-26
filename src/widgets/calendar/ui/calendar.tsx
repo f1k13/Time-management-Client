@@ -28,7 +28,6 @@ const Calendar = () => {
   useEffect(() => {
     getTasksCells(user.id);
   }, []);
-  console.log(tasksCells);
   return (
     <div className=" w-full p-[5px] h-full flex flex-col">
       <div className="flex items-center w-full justify-between">
@@ -42,10 +41,7 @@ const Calendar = () => {
       </div>
       <div className="w-full flex justify-around mt-[48px]">
         {days.map((day) => (
-          <p
-            key={day}
-            className="pl-[11%] text-secondaryTextColor text-12px font-normal"
-          >
+          <p key={day} className="pl-[11%] text-white text-12px font-normal">
             {day}
           </p>
         ))}

@@ -35,7 +35,7 @@ const CalendarTasksList = ({ date }: { date?: string }) => {
       >
         <h1 className="text-white text-32px font-bold mb-1">Your tasks</h1>
         {tasks.map((item) => (
-          <CalendarTaskItem user={user} item={item} date={date} key={item.id} />
+          <CalendarTaskItem item={item} date={date} key={item.id} />
         ))}
       </div>
     </div>

@@ -26,21 +26,19 @@ const CalendarCell = ({
   const navigate = useNavigate();
 
   const cellClassName = clsx(
-    "border-[1px] w-full p-2 h-[110px] min-w-[136px] border-mainBorder cursor-pointer overflow-y-auto",
+    "border-[1px] w-full p-2 h-[110px] min-w-[136px] border-mainBorder cursor-pointer overflow-y-auto transition-colors duration-200 hover:border-successColor",
     styles.root,
     item.day === moment().format("YYYY-MM-DD") &&
       item.currentMonth === month &&
       item.currentYear === year &&
       "border-mainColorAccent",
-    item.dayOfWeek === "Saturday" && "bg-mainBorder bg-opacity-50",
-    item.dayOfWeek === "Sunday" && "bg-mainBorder bg-opacity-50",
+    item.dayOfWeek === "Saturday" && "bg-mainBorder bg-opacity-[55%]",
+    item.dayOfWeek === "Sunday" && "bg-mainBorder bg-opacity-[55%]"
   );
 
   const dayClassName = clsx(
-    "text-textSecondary text-end",
-    today === index + 3 &&
-      item.currentMonth === month &&
-      "text-mainColorAccent",
+    "text-secondaryTextColor text-end",
+    today === index + 3 && item.currentMonth === month && "text-mainColorAccent"
   );
   const notification = useStore($notifications);
 
@@ -70,7 +68,7 @@ const CalendarCell = ({
         (task) =>
           task.calendarDate === item.day && (
             <CellTaskItem item={task} key={task.id} />
-          ),
+          )
       )}
     </div>
   );

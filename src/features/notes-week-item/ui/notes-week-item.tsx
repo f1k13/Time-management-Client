@@ -30,7 +30,7 @@ const NotesWeekItem = ({ item, user }: { item: string; user: User }) => {
   };
   return (
     <div className="w-[170px] py-5 px-2 h-[204px] flex flex-col items-center rounded-2xl bg-mainBG">
-      <p className="text-successColor text-20px font-bold">{item}</p>
+      <p className="text-secondaryColor text-20px font-bold">{item}</p>
       {isVisible && (
         <Modal setIsVisible={setIsVisible}>
           <div className="flex flex-col items-start gap-6 px-5 w-full">

@@ -1,7 +1,7 @@
 import { HOME_ROUTE } from "@/app/routes/paths";
 import { useNavigate } from "react-router-dom";
 import { Notifications } from "@/features/notifications/ui";
-import { BurgerMenu } from "@/widgets/burger-menu/ui";
+import { BurgerMenu } from "@/features/burger-menu/ui";
 
 const Navbar = () => {
   const navigate = useNavigate();

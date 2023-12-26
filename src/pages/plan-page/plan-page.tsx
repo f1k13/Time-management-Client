@@ -1,8 +1,9 @@
+import { Plan } from "@/widgets/plan/ui";
 
 const PlanPage = () => {
   return (
     <div>
-      PLAN
+      <Plan />
     </div>
   );
 };
