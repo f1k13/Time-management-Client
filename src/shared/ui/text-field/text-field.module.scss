@@ -14,7 +14,10 @@
   padding-left: 15px;
   outline: none;
 }
-
+.root::-webkit-outer-spin-button,
+.root::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 .placeholder {
   user-select: none;
   color: #3f454d;
