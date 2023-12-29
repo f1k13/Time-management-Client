@@ -16,7 +16,6 @@ export const createPlanFx = createEffect<CreatePlanAttrs, Plan, AxiosError>(
     const { data } = await api.post<Plan>("/work/create", {
       ...params,
     });
-    console.log(params);
     return data;
   }
 );

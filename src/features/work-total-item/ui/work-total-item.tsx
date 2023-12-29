@@ -1,12 +1,21 @@
 import { Plan } from "@/features/plan-item/model/plan";
 
 const WorkTotalItem = ({ item }: { item: Plan }) => {
-  console.log(item);
   return (
-    <div>
-      <p>{item.endTime - item.startTime}</p>
-      <p>{item.date}</p>
-    </div>
+    <tr className="flex w-full">
+      <td className="text-white w-full text-center border py-[13px] border-mainBorder">
+        {item.date}
+      </td>
+      <td className="text-white w-full text-center border py-[13px] border-mainBorder">
+        {item.startTime}.00
+      </td>
+      <td className="text-white w-full text-center border py-[13px] border-mainBorder">
+        {item.endTime}.00
+      </td>
+      <td className="text-white w-full text-center border py-[13px] border-mainBorder">
+        {item.endTime - item.startTime}h
+      </td>
+    </tr>
   );
 };
 

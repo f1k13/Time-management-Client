@@ -6,12 +6,22 @@ import { NotesItem } from "@/features/notes-item/ui";
 import { getNotesFx } from "../lib/get-notes";
 import clsx from "clsx";
 import styles from "../styles/notes-list.module.scss";
+import { deleteNoteFx } from "@/features/notes-item/lib/delete-note";
+import { addAlert } from "@/entities/alert/lib/alert-events";
 const NotesList = () => {
   const notes = useStore($notes);
   const user = useStore($user);
   useEffect(() => {
     getNotesFx(user.id);
   }, []);
+  const deleteNote = (id: number) => {
+    deleteNoteFx(id);
+    addAlert({
+      type: "info",
+      text: "Note removed",
+    });
+    getNotesFx(user.id);
+  };
   return (
     <div
       className={clsx(
@@ -20,7 +30,7 @@ const NotesList = () => {
       )}
     >
       {notes.map((item) => (
-        <NotesItem item={item} key={item.id} />
+        <NotesItem deleteNote={deleteNote} item={item} key={item.id} />
       ))}
     </div>
   );
