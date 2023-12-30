@@ -1,6 +1,5 @@
 import { $notes } from "@/features/notes-week-item/model/notes";
 import { useStore } from "effector-react";
-import { useEffect } from "react";
 import { $user } from "@/entities/user/model/user";
 import { NotesItem } from "@/features/notes-item/ui";
 import { getNotesFx } from "../lib/get-notes";
@@ -11,16 +10,13 @@ import { addAlert } from "@/entities/alert/lib/alert-events";
 const NotesList = () => {
   const notes = useStore($notes);
   const user = useStore($user);
-  useEffect(() => {
-    getNotesFx(user.id);
-  }, []);
-  const deleteNote = (id: number) => {
-    deleteNoteFx(id);
+  const deleteNote = async (id: number) => {
+    await deleteNoteFx(id);
+    await getNotesFx(user.id);
     addAlert({
       type: "info",
       text: "Note removed",
     });
-    getNotesFx(user.id);
   };
   return (
     <div

@@ -7,6 +7,7 @@ import {
   LOGIN_ROUTE,
   NOTES_ROUTE,
   PLAN_ROUTE,
+  PROGRESS_ROUTE,
   REGISTER_ROUTE,
 } from "./paths";
 import { CalendarDay } from "@/pages/calendar-page/calendar-day";
@@ -17,6 +18,7 @@ import { FriendsPage } from "@/pages/friends-page";
 import { HomePage } from "@/pages/home-page";
 import { PlanPage } from "@/pages/plan-page";
 import { NotesPage } from "@/pages/notes-page";
+import { ProgressPage } from "@/pages/progress-page";
 
 type RouteType = {
   path: string;
@@ -66,6 +68,11 @@ export const authRoutes: RouteType[] = [
   {
     path: NOTES_ROUTE,
     Component: NotesPage,
+    Layout: MainLayout,
+  },
+  {
+    path: PROGRESS_ROUTE,
+    Component: ProgressPage,
     Layout: MainLayout,
   },
 ];

@@ -37,7 +37,7 @@ const PlanItem = ({ item, user }: { item: string; user: User }) => {
     getHouseTotalFx(user.id);
   }, []);
   return (
-    <div className="bg-activeColor flex flex-col items-center p-2 text-white w-full h-[200px] rounded-2xl">
+    <div className="bg-activeColor flex flex-col items-center p-2 text-white w-full h-[120px] rounded-2xl">
       <p className="text-white text-20px font-bold">{item}</p>
       {isVisible && (
         <Modal setIsVisible={setIsVisible}>

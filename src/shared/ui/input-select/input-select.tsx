@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ArrowRight, CheckIcon } from "../icons";
+import { ArrowRight, RemoveIcon } from "../icons";
 import styles from "./input-select.module.scss";
 
 type option = {
@@ -15,7 +15,6 @@ const InputSelect = ({
   select,
   colorSelect,
   checkBox,
-  active,
 }: {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
@@ -24,14 +23,13 @@ const InputSelect = ({
   select: string;
   colorSelect?: string;
   checkBox?: boolean;
-  active?: boolean;
 }) => {
   return (
     <div
       onClick={() => setIsOpen(!isOpen)}
       className={clsx(
         "outline-none transition-all bg-inputBG p-5 pl-[10px] rounded-xl text-textSecondary",
-        colorSelect && "bg-mainBG",
+        colorSelect && "bg-mainBG"
       )}
     >
       <div className="flex w-full cursor-pointer justify-between border-b border-1px border-textSecondary pl-2 pb-2">
@@ -46,7 +44,7 @@ const InputSelect = ({
             isOpen && (
               <div
                 className={clsx(
-                  checkBox && "flex w-full justify-between items-center",
+                  checkBox && "flex w-full justify-between items-center"
                 )}
                 key={item.selectName}
               >
@@ -54,7 +52,7 @@ const InputSelect = ({
                   className={clsx(
                     " transition-colors duration-100 p-2 rounded-xl mt-5 cursor-pointer ",
                     !colorSelect && "hover:bg-mainColorAccent hover:text-white",
-                    colorSelect && styles[colorSelect || ""],
+                    colorSelect && styles[colorSelect || ""]
                   )}
                   onClick={() => onChange?.(item.selectName)}
                 >
@@ -63,16 +61,16 @@ const InputSelect = ({
                     : item.selectName}
                 </li>
                 {checkBox && (
-                  <div
+                  <button
                     onClick={() => onChange?.(String(item.id))}
                     key={item.selectName}
-                    className="w-[30px] h-[30px] bg-mainBG border-2 border-mainColorAccent mt-5  flex justify-center items-center cursor-pointer"
+                    className="cursor-pointer pt-5"
                   >
-                    {active && <CheckIcon />}
-                  </div>
+                    <RemoveIcon />
+                  </button>
                 )}
               </div>
-            ),
+            )
         )}
       </ul>
     </div>

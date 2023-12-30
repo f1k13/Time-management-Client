@@ -8,17 +8,29 @@ import clsx from "clsx";
 import { useEffect } from "react";
 import { getTasksFx } from "@/widgets/calendar-tasks-list/lib/get-tasks-effect.ts";
 import { $user } from "@/entities/user/model/user.ts";
+import { addAlert } from "@/entities/alert/lib/alert-events";
+import { deleteTaskFx } from "@/features/calendar-task-item/lib/delete-task";
 
 const CalendarTasksList = ({ date }: { date?: string }) => {
   const tasks = useStore($calendarTasks);
-  const navigate = useNavigate();
   const user = useStore($user);
+
+  const navigate = useNavigate();
+
+  const deleteTask = async (id: number) => {
+    await deleteTaskFx(id);
+    if (date && user) {
+      getTasksFx({ date: date, userId: user.id });
+    }
+    addAlert({ type: "success", text: "Task closed" });
+  };
+
   useEffect(() => {
     if (date && user) {
       getTasksFx({ date: date, userId: user.id });
     }
   }, []);
-  console.log(tasks);
+
   return (
     <div className="flex flex-col w-1/2 items-end">
       <button
@@ -30,12 +42,17 @@ const CalendarTasksList = ({ date }: { date?: string }) => {
       <div
         className={clsx(
           " w-full bg-inputBG flex pt-5 h-[500px] flex-col mt-20 items-center rounded-xl overflow-y-auto",
-          styles.root,
+          styles.root
         )}
       >
         <h1 className="text-white text-32px font-bold mb-1">Your tasks</h1>
         {tasks.map((item) => (
-          <CalendarTaskItem item={item} date={date} key={item.id} />
+          <CalendarTaskItem
+            deleteTask={deleteTask}
+            item={item}
+            date={date}
+            key={item.id}
+          />
         ))}
       </div>
     </div>
