@@ -10,15 +10,17 @@ import {
   PROGRESS_ROUTE,
   REGISTER_ROUTE,
 } from "./paths";
-import { CalendarDay } from "@/pages/calendar-page/calendar-day";
-import { LoginPage } from "@/pages/login-page";
-import { RegisterPage } from "@/pages/register-page";
-import { CalendarPage } from "@/pages/calendar-page";
-import { FriendsPage } from "@/pages/friends-page";
-import { HomePage } from "@/pages/home-page";
-import { PlanPage } from "@/pages/plan-page";
-import { NotesPage } from "@/pages/notes-page";
-import { ProgressPage } from "@/pages/progress-page";
+import {
+  LoginPage,
+  RegisterPage,
+  HomePage,
+  CalendarPage,
+  CalendarDay,
+  FriendsPage,
+  PlanPage,
+  NotesPage,
+  ProgressPage,
+} from "@/pages";
 
 type RouteType = {
   path: string;

@@ -1,23 +1,23 @@
 import { $plan } from "@/features/plan-item/model/plan";
 import { useStore } from "effector-react";
 import {
+  Bar,
+  BarChart,
   CartesianGrid,
   Legend,
-  LineChart,
+  Rectangle,
   ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  Line,
-  Tooltip,
 } from "recharts";
 
-const Dashboard = () => {
+const DashboardBarChart = () => {
   const plan = useStore($plan);
-  console.log(plan);
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <LineChart
-        width={600}
+      <BarChart
+        width={500}
         height={300}
         data={plan}
         margin={{
@@ -30,18 +30,21 @@ const Dashboard = () => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="date" />
         <YAxis />
-        <Legend />
         <Tooltip />
-        <Line
-          type="monotone"
+        <Legend />
+        <Bar
           dataKey="startTime"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
+          fill="#8884d8"
+          activeBar={<Rectangle fill="pink" stroke="blue" />}
         />
-        <Line type="monotone" dataKey="endTime" stroke="#82ca9d" />
-      </LineChart>
+        <Bar
+          dataKey="endTime"
+          fill="#82ca9d"
+          activeBar={<Rectangle fill="gold" stroke="purple" />}
+        />
+      </BarChart>
     </ResponsiveContainer>
   );
 };
 
-export default Dashboard;
+export default DashboardBarChart;

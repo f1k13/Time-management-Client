@@ -4,13 +4,12 @@ import clsx from "clsx";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { Task } from "@/widgets/calendar-tasks-list/model/calendar-tasks.ts";
-import styles from "../styles/calendar-cell.module.scss";
 import CellTaskItem from "@/entities/cell-task-item/ui/cell-task-item.tsx";
 import { useEffect } from "react";
 import { addNotifications } from "@/features/notifications/lib/notifications-event.ts";
 import { useStore } from "effector-react";
 import { $notifications } from "@/features/notifications/model/notifications.ts";
-
+import styles from "../styles/calendar-cell.module.scss";
 const CalendarCell = ({
   item,
   index,

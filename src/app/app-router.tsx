@@ -8,7 +8,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./routes/routes";
 import { HOME_ROUTE, REGISTER_ROUTE } from "./routes/paths";
 import { Loader } from "@/features/loader/ui";
-import { NotFoundPage } from "@/pages/not-found-page";
+import { NotFoundPage } from "@/pages";
 
 const AppRouter = () => {
   const isAuth = useStore($isAuth);
